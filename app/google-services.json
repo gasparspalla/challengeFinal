@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1034841971000",
+    "project_id": "challengefinal-ecc3b",
+    "storage_bucket": "challengefinal-ecc3b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034841971000:android:357773b2dd8f95b97149cd",
+        "android_client_info": {
+          "package_name": "com.munidigital.bc2201.challengefinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034841971000-695mnb99g3vgd08u4bbei8j4jqltmr70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuDQIyqoEU3BZiUGUwJ84EkcSYVfOteJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034841971000-695mnb99g3vgd08u4bbei8j4jqltmr70.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
