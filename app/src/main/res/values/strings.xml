@@ -13,6 +13,10 @@
     <string name="MessaggeErrorLogin">El usuario o contraseña son incorrectos...Por favor,intentelo nuevamente</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="clickForMoreInfo">click para mas información</string>
-    <string name="no_teams_right_now">No Teams right now</string>
+    <string name="no_teams_right_now">No hay equipos disponibles</string>
+    <string name="no_information">"Actualmente no contamos con esta información"</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="stadium_location_error">El equipo que selecciono no posee informacion de la ubicacion de su estadio</string>
+
 
 </resources>

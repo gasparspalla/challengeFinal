@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.munidigital.bc2201.challengefinal.MainActivity
+import com.munidigital.bc2201.challengefinal.TeamArg
 import com.munidigital.bc2201.challengefinal.api.ApiResponseStatus
 import com.munidigital.bc2201.challengefinal.databinding.FragmentHomeBinding
 
@@ -24,6 +25,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        val activity=(activity as MainActivity)
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -38,9 +40,14 @@ class HomeFragment : Fragment() {
         observerTeamList(adapter)
         observerStateCharge()
 
+        adapter.onItemClickListener={
+            activity.setTeamSelected(it)
+        }
 
         return root
     }
+
+
 
     private fun observerStateCharge() {
         val progressBar=binding.progressBar

@@ -45,6 +45,12 @@ class SoccerAdapter(private val activity: Activity):
             binding.tvAlternateTeam.text=teams.nameAlternateTeam
             val img=binding.imgTeam
             Glide.with(activity).load(teams.imageUrl).into(img)
+            binding.root.setOnClickListener {
+                if (::onItemClickListener.isInitialized) {
+                    onItemClickListener(teams)
+                }
+
+            }
         }
     }
 }

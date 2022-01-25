@@ -87,7 +87,7 @@ class ViewModelLogin:ViewModel() {
         val builder= AlertDialog.Builder(context)
         builder.setTitle(context.getString(R.string.showAlertError))
         builder.setMessage(context.getString(R.string.MessaggeErrorLogin))
-        builder.setPositiveButton("Aceptar",null)
+        builder.setPositiveButton("OK",null)
         val dialog: AlertDialog =builder.create()
         dialog.show()
     }

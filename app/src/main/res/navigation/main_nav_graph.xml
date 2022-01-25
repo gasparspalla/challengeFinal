@@ -9,17 +9,24 @@
         android:id="@+id/navigation_home"
         android:name="com.munidigital.bc2201.challengefinal.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.munidigital.bc2201.challengefinal.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
-
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.munidigital.bc2201.challengefinal.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/detailFragment"
+        android:name="com.munidigital.bc2201.challengefinal.ui.detail.DetailFragment"
+        android:label="DetailFragment" >
+        <argument
+            android:name="team"
+            app:argType="com.munidigital.bc2201.challengefinal.TeamArg" />
+    </fragment>
+
 </navigation>

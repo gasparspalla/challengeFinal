@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/detailimgTeam"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:paddingTop="10dp"
+                    tools:src="@tools:sample/backgrounds/scenic" />
+
+                <TextView
+                    android:layout_below="@id/detailimgTeam"
+                    android:id="@+id/detailTvAlternateTeam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="BTC" />
+
+                <TextView
+                    android:id="@+id/detailTvNameTeam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/detailTvAlternateTeam"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    tools:text="Bitcoin" />
+
+                <TextView
+                    android:id="@+id/detailTvNameLeague"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/detailTvNameTeam"
+                    android:padding="4dp"
+                    android:textSize="16sp"
+                    tools:text="dsadasdas" />
+
+                <TextView
+                    android:id="@+id/detailNameStadium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/detailTvNameLeague"
+                    tools:text="La bombonera"/>
+
+                <TextView
+                    android:id="@+id/detailDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:layout_below="@id/detailNameStadium"
+                    tools:text="Lorem" />
+
+
+                <Button
+                    android:id="@+id/btnMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ir a mapa"
+                    android:layout_below="@id/detailDescription"/>
+
+            </RelativeLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+</layout>
