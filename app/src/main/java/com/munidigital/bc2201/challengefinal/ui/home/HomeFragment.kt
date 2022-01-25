@@ -4,42 +4,60 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.munidigital.bc2201.challengefinal.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.munidigital.bc2201.challengefinal.MainActivity
+import com.munidigital.bc2201.challengefinal.api.ApiResponseStatus
 import com.munidigital.bc2201.challengefinal.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var viewModel: HomeViewModel
+    private lateinit var binding: FragmentHomeBinding
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        viewModel=ViewModelProvider(this,MainViewModelFactory(requireActivity().application)).get(HomeViewModel::class.java)
+
+        val recycler=binding.teamRecycler
+        recycler.layoutManager = LinearLayoutManager(requireActivity())
+
+        val adapter = SoccerAdapter(requireActivity())
+        recycler.adapter = adapter
+
+        observerTeamList(adapter)
+        observerStateCharge()
+
+
         return root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun observerStateCharge() {
+        val progressBar=binding.progressBar
+        viewModel.statusLiveData.observe(requireActivity()){
+            when{(it== ApiResponseStatus.LOADING)->progressBar.visibility = View.VISIBLE
+
+                (it== ApiResponseStatus.DONE)->progressBar.visibility= View.GONE
+
+                (it== ApiResponseStatus.NO_INTERNET_CONNECTION)->progressBar.visibility= View.GONE
+
+            }
+        }
+    }
+
+    private fun observerTeamList(adapter:SoccerAdapter) {
+        viewModel.teamListLiveData.observe(requireActivity()) {
+            adapter.submitList(it)
+        }
     }
 }
