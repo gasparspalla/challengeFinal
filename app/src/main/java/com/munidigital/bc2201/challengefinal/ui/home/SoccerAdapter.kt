@@ -1,12 +1,15 @@
 package com.munidigital.bc2201.challengefinal.ui.home
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.os.Build
 import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -16,10 +19,23 @@ import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.TeamArg
 import com.munidigital.bc2201.challengefinal.databinding.TeamListItemBinding
 import kotlinx.coroutines.delay
+import java.util.*
 import java.util.logging.Handler
+import java.util.stream.Collector
+import java.util.stream.Collectors
 
 class SoccerAdapter(private val activity: Activity):
     ListAdapter<TeamArg, SoccerAdapter.SoccerViewHolder>(DiffCallback) {
+
+    private lateinit var listTeam:MutableList<TeamArg>
+    private val listOriginal= mutableListOf<TeamArg>()
+
+    fun completeList(teams:MutableList<TeamArg>){
+        listTeam=teams
+        listOriginal.addAll(listTeam)
+
+
+    }
 
     companion object DiffCallback : DiffUtil.ItemCallback<TeamArg>() {
         override fun areItemsTheSame(oldItem: TeamArg, newItem: TeamArg): Boolean {
@@ -47,10 +63,29 @@ class SoccerAdapter(private val activity: Activity):
     }
 
 
+    @SuppressLint("NotifyDataSetChanged")
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun filtrado(txtBuscar:String){
+        if (txtBuscar.isBlank()){
+            listTeam.clear()
+            listTeam.addAll(listOriginal)
+        }
+        else{
+            val collection=listTeam.stream().filter { i ->
+                i.nameTeam.lowercase(Locale.getDefault()).contains(txtBuscar.lowercase(Locale.getDefault()))
+            }.collect(Collectors.toList())
+            listTeam.clear()
+            listTeam.addAll(collection)
+        }
+        notifyDataSetChanged()
+    }
+
+
     inner class SoccerViewHolder(private val binding: TeamListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(teams: TeamArg) {
+
             if (teams.isSelected==0)binding.imgFavorite.setImageResource(R.drawable.ic_favorite_border)
             else binding.imgFavorite.setImageResource(R.drawable.ic_favorite_backfill)
             binding.tvNameTeam.text = teams.nameTeam
@@ -67,5 +102,7 @@ class SoccerAdapter(private val activity: Activity):
                 }
             }
         }
+
+
     }
 }

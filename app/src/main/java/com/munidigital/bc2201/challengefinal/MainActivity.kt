@@ -1,6 +1,9 @@
 package com.munidigital.bc2201.challengefinal
 
+import android.os.Build
 import android.os.Bundle
+import android.widget.SearchView
+import androidx.annotation.RequiresApi
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -10,6 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.munidigital.bc2201.challengefinal.databinding.ActivityMainBinding
+import com.munidigital.bc2201.challengefinal.ui.home.HomeFragment
 import com.munidigital.bc2201.challengefinal.ui.home.HomeFragmentDirections
 
 class MainActivity : AppCompatActivity(),IFragment {
@@ -18,7 +22,6 @@ class MainActivity : AppCompatActivity(),IFragment {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -37,7 +40,8 @@ class MainActivity : AppCompatActivity(),IFragment {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-//        fragmentManager.beginTransaction().replace(R.id.flMap, R.id.map).addToBackStack(NULL).commit()
+
+
     }
 
     override fun setTeamSelected(teamArg: TeamArg) {
@@ -46,7 +50,7 @@ class MainActivity : AppCompatActivity(),IFragment {
 
     override fun setFavoriteItem(favoriteTeam:FavoriteTeam) {
         findNavController(R.id.main_navigation_container).navigate(HomeFragmentDirections.actionNavigationHomeToNavigationFavorite(favoriteTeam))
-
     }
+
 
 }

@@ -1,10 +1,16 @@
 package com.munidigital.bc2201.challengefinal.ui.home
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.SearchView
+import android.widget.SearchView.OnQueryTextListener
+import androidx.annotation.RequiresApi
+import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +21,7 @@ import com.munidigital.bc2201.challengefinal.TeamArg
 import com.munidigital.bc2201.challengefinal.api.ApiResponseStatus
 import com.munidigital.bc2201.challengefinal.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class HomeFragment() : Fragment(){
 
     private lateinit var viewModel: HomeViewModel
     private lateinit var binding: FragmentHomeBinding
@@ -23,10 +29,10 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        savedInstanceState: Bundle?): View? {
 
         val activity=(activity as MainActivity)
+
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -37,6 +43,7 @@ class HomeFragment : Fragment() {
 
         val adapter = SoccerAdapter(requireActivity())
         recycler.adapter = adapter
+
 
         observerTeamList(adapter)
         observerStateCharge()
@@ -49,10 +56,21 @@ class HomeFragment : Fragment() {
             activity.setFavoriteItem(favoriteTeam)
         }
 
+
+        binding.txtBuscar.setOnQueryTextListener(object : OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+
+            @RequiresApi(Build.VERSION_CODES.N)
+            override fun onQueryTextChange(txtBuscar:String): Boolean {
+                adapter.filtrado(txtBuscar)
+                return false
+            }
+        })
+
         return root
     }
-
-
 
     private fun observerStateCharge() {
         val progressBar=binding.progressBar
@@ -67,9 +85,14 @@ class HomeFragment : Fragment() {
         }
     }
 
+
     private fun observerTeamList(adapter:SoccerAdapter) {
         viewModel.teamListLiveData.observe(requireActivity()) {
             adapter.submitList(it)
+            adapter.completeList(it)
         }
     }
+
+
+
 }

@@ -3,6 +3,7 @@ package com.munidigital.bc2201.challengefinal.ui.home
 import android.app.Application
 import android.content.ContentValues.TAG
 import android.util.Log
+import android.widget.SearchView
 import androidx.lifecycle.*
 import com.munidigital.bc2201.challengefinal.api.ApiResponseStatus
 import com.munidigital.bc2201.challengefinal.database.getDataBase

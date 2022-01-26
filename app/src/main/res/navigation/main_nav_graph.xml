@@ -15,7 +15,7 @@
             app:destination="@id/detailFragment" />
         <action
             android:id="@+id/action_navigation_home_to_navigation_favorite"
-            app:destination="@id/navigation_favorite" />
+            app:destination="@id/navigation_favorite"/>
     </fragment>
 
     <fragment
