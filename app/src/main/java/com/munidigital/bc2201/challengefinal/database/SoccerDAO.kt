@@ -12,11 +12,10 @@ interface SoccerDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(teams: MutableList<TeamArg>)
 
-//    @Query("SELECT E.idTeam FROM TEAMS_TABLE E WHERE E.idTeam=:id")
-//    fun getIndentic(id:String): LiveData<MutableList<TeamArg>>
+    @Query("SELECT COUNT() FROM TEAMS_TABLE")
+    fun teamRowCount():Int
 
-//    @Query("UPDATE TEAMS_TABLE SET isSelected=1 WHERE idTeam=:idFavorite")
-//    fun isSelected(idFavorite:String)
+
 
     @Query("SELECT * FROM teams_table")
     fun getTeams(): LiveData<MutableList<TeamArg>>
@@ -24,6 +23,12 @@ interface SoccerDAO {
     //tabla FAVORITOS
     @Query("SELECT * FROM favorites_table")
     fun getFavorite(): LiveData<MutableList<FavoriteTeam>>
+
+    @Query("UPDATE TEAMS_TABLE SET isSelected=1 WHERE idTeam=:idFavorite")
+    fun activeFavoriteImg(idFavorite:String)
+
+    @Query("UPDATE TEAMS_TABLE SET isSelected=0 WHERE idTeam=:idFavorite")
+    fun desactiveFavoriteImg(idFavorite:String)
 
     @Insert
     fun insertItemFavorite(favoriteItem:FavoriteTeam)

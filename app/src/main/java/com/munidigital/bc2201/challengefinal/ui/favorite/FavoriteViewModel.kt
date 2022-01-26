@@ -20,15 +20,15 @@ class FavoriteViewModel(application: Application): AndroidViewModel(application)
     val teamListLiveData=repository.favoriteList
 
 
-    fun setValue(favoriteItem: FavoriteTeam) {
-        getFavoriteData(favoriteItem)
+    fun setFavoriteData(favoriteItem: FavoriteTeam) {
+        viewModelScope.launch {
+
+            repository.setFavoriteData(favoriteItem)
+        }
+
     }
 
-    private fun getFavoriteData(itemFavorite: FavoriteTeam) {
-        viewModelScope.launch {
-            repository.getFavoriteData(itemFavorite)
-        }
-    }
+
 
 }
 

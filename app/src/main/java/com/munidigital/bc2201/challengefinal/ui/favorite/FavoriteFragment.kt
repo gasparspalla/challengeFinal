@@ -33,7 +33,7 @@ class FavoriteFragment : Fragment() {
 
 
         val favoriteItem=args.favorite
-        favoriteItem?.let { viewModel.setValue(it) }
+        favoriteItem?.let { viewModel.setFavoriteData(it) }
 
 
         val recycler=binding.favoriteRecycler

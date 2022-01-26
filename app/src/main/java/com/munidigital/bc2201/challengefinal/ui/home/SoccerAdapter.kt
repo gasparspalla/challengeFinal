@@ -2,6 +2,7 @@ package com.munidigital.bc2201.challengefinal.ui.home
 
 import android.app.Activity
 import android.content.Context
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,8 @@ import com.google.android.gms.common.internal.FallbackServiceBroker
 import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.TeamArg
 import com.munidigital.bc2201.challengefinal.databinding.TeamListItemBinding
+import kotlinx.coroutines.delay
+import java.util.logging.Handler
 
 class SoccerAdapter(private val activity: Activity):
     ListAdapter<TeamArg, SoccerAdapter.SoccerViewHolder>(DiffCallback) {
@@ -48,9 +51,8 @@ class SoccerAdapter(private val activity: Activity):
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(teams: TeamArg) {
-//            if (teams.isSelected==0)binding.imgFavorite.setImageResource(R.drawable.ic_favorite_border)
-//            else binding.imgFavorite.setImageResource(R.drawable.ic_favorite_backfill)
-
+            if (teams.isSelected==0)binding.imgFavorite.setImageResource(R.drawable.ic_favorite_border)
+            else binding.imgFavorite.setImageResource(R.drawable.ic_favorite_backfill)
             binding.tvNameTeam.text = teams.nameTeam
             val img = binding.imgTeam
             Glide.with(activity).load(teams.imageUrl).into(img)
@@ -59,9 +61,7 @@ class SoccerAdapter(private val activity: Activity):
                     onItemClickListener(teams)
                 }
             }
-
             binding.imgFavorite.setOnClickListener {
-                binding.imgFavorite.setImageResource(R.drawable.ic_favorite_backfill)
                 if (::onItemFavoriteClickListener.isInitialized) {
                     onItemFavoriteClickListener(teams)
                 }

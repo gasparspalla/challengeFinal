@@ -15,5 +15,6 @@ data class TeamArg(@PrimaryKey val idTeam:String,
                    val nameStadiumLocation:String,
                    val nameStadium:String,
                    val description:String?,
-                   val imageUrl:String): Parcelable {
+                   val imageUrl:String,
+                   val isSelected:Int): Parcelable {
 }

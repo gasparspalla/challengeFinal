@@ -1,18 +1,17 @@
 package com.munidigital.bc2201.challengefinal.ui.home
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+
+import androidx.lifecycle.viewModelScope
 import com.munidigital.bc2201.challengefinal.FavoriteTeam
 import com.munidigital.bc2201.challengefinal.TeamArg
 import com.munidigital.bc2201.challengefinal.api.SoccerJsonResponse
 import com.munidigital.bc2201.challengefinal.api.service
 import com.munidigital.bc2201.challengefinal.database.SoccerDataBase
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MainRepository(private val dataBase: SoccerDataBase) {
-
 
     val teamList=dataBase.soccerDAO.getTeams()
 
@@ -21,25 +20,32 @@ class MainRepository(private val dataBase: SoccerDataBase) {
     suspend fun fetchTeams() {
         return withContext(Dispatchers.IO){
             val temsJsonResponse =service.getAllTeamsArgentina()
-            val teams = parseEqResult(temsJsonResponse)
-            dataBase.soccerDAO.insertAll(teams)
+            val countRowTeam=dataBase.soccerDAO.teamRowCount()
+            if (countRowTeam==0){
+                val teams = parseEqResult(temsJsonResponse)
+                dataBase.soccerDAO.insertAll(teams)
+            }
         }
     }
 
-    suspend fun getFavoriteData(itemFavorite:FavoriteTeam){
+
+
+    suspend fun setFavoriteData(itemFavorite:FavoriteTeam){
         return withContext(Dispatchers.IO){
             val favoriteList=dataBase.soccerDAO.isFavorite(itemFavorite.idFavoriteTeam)
             if (favoriteList==0){
                 dataBase.soccerDAO.insertItemFavorite(itemFavorite)
+                dataBase.soccerDAO.activeFavoriteImg(itemFavorite.idFavoriteTeam)
+
             }
             else{
                 dataBase.soccerDAO.delete(itemFavorite)
+                dataBase.soccerDAO.desactiveFavoriteImg(itemFavorite.idFavoriteTeam)
 
             }
         }
 
     }
-
 
 
     private fun parseEqResult(soccerJsonResponse: SoccerJsonResponse):MutableList<TeamArg> {
@@ -58,7 +64,7 @@ class MainRepository(private val dataBase: SoccerDataBase) {
             val description=team.strDescriptionEN
             val image=team.strTeamBadge
 
-            teamsList.add(TeamArg(idTeam,nameTeam,nameAlternateTeam,nameLeague,nameAlternateLeague,nameStadiumLocation,nameStadium,description,image))
+            teamsList.add(TeamArg(idTeam,nameTeam,nameAlternateTeam,nameLeague,nameAlternateLeague,nameStadiumLocation,nameStadium,description,image,0))
         }
         return teamsList
     }
