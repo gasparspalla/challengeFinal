@@ -1,4 +1,4 @@
-package com.munidigital.bc2201.challengefinal.ui.Login
+package com.munidigital.bc2201.challengefinal.ui.login
 
 import com.google.firebase.auth.FirebaseUser
 

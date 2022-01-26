@@ -8,6 +8,8 @@ import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.munidigital.bc2201.challengefinal.FavoriteTeam
+import com.munidigital.bc2201.challengefinal.IFragment
 import com.munidigital.bc2201.challengefinal.MainActivity
 import com.munidigital.bc2201.challengefinal.TeamArg
 import com.munidigital.bc2201.challengefinal.api.ApiResponseStatus
@@ -17,7 +19,6 @@ class HomeFragment : Fragment() {
 
     private lateinit var viewModel: HomeViewModel
     private lateinit var binding: FragmentHomeBinding
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,6 +43,10 @@ class HomeFragment : Fragment() {
 
         adapter.onItemClickListener={
             activity.setTeamSelected(it)
+        }
+        adapter.onItemFavoriteClickListener={
+            val favoriteTeam=FavoriteTeam(it.idTeam,it.nameTeam,it.imageUrl)
+            activity.setFavoriteItem(favoriteTeam)
         }
 
         return root

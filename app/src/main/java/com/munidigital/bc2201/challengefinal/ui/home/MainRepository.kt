@@ -1,6 +1,9 @@
 package com.munidigital.bc2201.challengefinal.ui.home
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.munidigital.bc2201.challengefinal.FavoriteTeam
 import com.munidigital.bc2201.challengefinal.TeamArg
 import com.munidigital.bc2201.challengefinal.api.SoccerJsonResponse
 import com.munidigital.bc2201.challengefinal.api.service
@@ -10,7 +13,10 @@ import kotlinx.coroutines.withContext
 
 class MainRepository(private val dataBase: SoccerDataBase) {
 
+
     val teamList=dataBase.soccerDAO.getTeams()
+
+    val favoriteList=dataBase.soccerDAO.getFavorite()
 
     suspend fun fetchTeams() {
         return withContext(Dispatchers.IO){
@@ -18,9 +24,24 @@ class MainRepository(private val dataBase: SoccerDataBase) {
             val teams = parseEqResult(temsJsonResponse)
             dataBase.soccerDAO.insertAll(teams)
         }
+    }
 
+    suspend fun getFavoriteData(itemFavorite:FavoriteTeam){
+        return withContext(Dispatchers.IO){
+            val favoriteList=dataBase.soccerDAO.isFavorite(itemFavorite.idFavoriteTeam)
+            if (favoriteList==0){
+                dataBase.soccerDAO.insertItemFavorite(itemFavorite)
+            }
+            else{
+                dataBase.soccerDAO.delete(itemFavorite)
+
+            }
+        }
 
     }
+
+
+
     private fun parseEqResult(soccerJsonResponse: SoccerJsonResponse):MutableList<TeamArg> {
         val teamsList= mutableListOf<TeamArg>()
 
@@ -41,4 +62,8 @@ class MainRepository(private val dataBase: SoccerDataBase) {
         }
         return teamsList
     }
+
+
+
+
 }

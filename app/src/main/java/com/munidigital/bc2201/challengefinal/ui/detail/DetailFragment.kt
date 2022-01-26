@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -17,9 +16,8 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.munidigital.bc2201.challengefinal.MainActivity
-import com.munidigital.bc2201.challengefinal.MapsActivity
-import com.munidigital.bc2201.challengefinal.MapsActivity.Companion.LOCATION_KEY
+import com.munidigital.bc2201.challengefinal.ui.map.MapsActivity
+import com.munidigital.bc2201.challengefinal.ui.map.MapsActivity.Companion.LOCATION_KEY
 import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.TeamArg
 import com.munidigital.bc2201.challengefinal.databinding.FragmentDetailBinding
@@ -54,7 +52,7 @@ class DetailFragment : Fragment() {
             showAlert(requireContext())
         }
         else{
-            val intent=Intent(requireContext(),MapsActivity::class.java)
+            val intent=Intent(requireContext(), MapsActivity::class.java)
             intent.putExtra(LOCATION_KEY,location)
             startActivity(intent)
         }

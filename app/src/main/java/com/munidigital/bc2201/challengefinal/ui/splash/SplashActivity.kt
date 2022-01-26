@@ -1,4 +1,4 @@
-package com.munidigital.bc2201.challengefinal.ui.Splash
+package com.munidigital.bc2201.challengefinal.ui.splash
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -8,12 +8,9 @@ import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.ViewModelProvider
 import com.munidigital.bc2201.challengefinal.MainActivity
-import com.munidigital.bc2201.challengefinal.R
-import com.munidigital.bc2201.challengefinal.databinding.ActivityLoginBinding
 import com.munidigital.bc2201.challengefinal.databinding.ActivitySplashBinding
-import com.munidigital.bc2201.challengefinal.ui.Login.LoginActivity
-import com.munidigital.bc2201.challengefinal.ui.Login.Session
-import com.munidigital.bc2201.challengefinal.ui.Login.ViewModelLogin
+import com.munidigital.bc2201.challengefinal.ui.login.LoginActivity
+import com.munidigital.bc2201.challengefinal.ui.login.ViewModelLogin
 
 class SplashActivity : AppCompatActivity() {
     private val SPLASH_DURATION:Long=2000

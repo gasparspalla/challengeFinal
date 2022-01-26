@@ -17,6 +17,7 @@
     <string name="no_information">"Actualmente no contamos con esta información"</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="stadium_location_error">El equipo que selecciono no posee informacion de la ubicacion de su estadio</string>
+    <string name="Favorites">Favorites</string>
 
 
 </resources>

@@ -1,6 +1,6 @@
-package com.munidigital.bc2201.challengefinal
+package com.munidigital.bc2201.challengefinal.ui.map
 
-import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import android.location.Address
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +15,7 @@ import com.munidigital.bc2201.challengefinal.databinding.ActivityMapsBinding
 import android.location.Geocoder
 import android.util.Log
 import android.widget.Toast
+import com.munidigital.bc2201.challengefinal.R
 import java.io.IOException
 
 
@@ -51,15 +52,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         try {
             list = geocoder.getFromLocationName(searchString, 1)
         } catch (e: IOException) {
-            Log.d("ERROR LOCALIZACION",e.toString())
+            Log.e(TAG, "IOException: " + e.toString() );
         }
         if (list.size > 0) {
             val address: Address = list[0]
-            Log.d("LA LOCALIZACION ES ",address.toString())
-            Toast.makeText(this, address.toString(), Toast.LENGTH_SHORT).show();
             val location=LatLng(address.latitude,address.longitude)
             mMap.addMarker(MarkerOptions().position(location).title("Marker in Sydney"))
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,13f))
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,20f))
         }
 
     }

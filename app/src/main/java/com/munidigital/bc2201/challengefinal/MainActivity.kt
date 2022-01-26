@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity(),IFragment {
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard
+                R.id.navigation_home, R.id.navigation_favorite
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -43,4 +43,10 @@ class MainActivity : AppCompatActivity(),IFragment {
     override fun setTeamSelected(teamArg: TeamArg) {
         findNavController(R.id.main_navigation_container).navigate(HomeFragmentDirections.actionNavigationHomeToDetailFragment(teamArg))
     }
+
+    override fun setFavoriteItem(favoriteTeam:FavoriteTeam) {
+        findNavController(R.id.main_navigation_container).navigate(HomeFragmentDirections.actionNavigationHomeToNavigationFavorite(favoriteTeam))
+
+    }
+
 }
