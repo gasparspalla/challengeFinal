@@ -2,6 +2,8 @@ package com.munidigital.bc2201.challengefinal
 
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.SearchView
 import androidx.annotation.RequiresApi
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -17,7 +19,6 @@ import com.munidigital.bc2201.challengefinal.ui.home.HomeFragment
 import com.munidigital.bc2201.challengefinal.ui.home.HomeFragmentDirections
 
 class MainActivity : AppCompatActivity(),IFragment {
-
     private lateinit var binding:ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,12 +35,11 @@ class MainActivity : AppCompatActivity(),IFragment {
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_favorite
+                R.id.navigation_home, R.id.navigation_favorite,R.id.navigation_session
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
 
 
     }
@@ -52,5 +52,8 @@ class MainActivity : AppCompatActivity(),IFragment {
         findNavController(R.id.main_navigation_container).navigate(HomeFragmentDirections.actionNavigationHomeToNavigationFavorite(favoriteTeam))
     }
 
-
+    override fun onStop() {
+        super.onStop()
+        finish()
+    }
 }

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.munidigital.bc2201.challengefinal">
 
-    <uses-permission android:name="android.permissionion.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permissionion.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -12,7 +12,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChallengeFinal">
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login"
 
+            android:theme="@style/Theme.ChallengeFinal.NoActionBar"/>
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.ChallengeFinal.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -28,22 +43,17 @@
         <activity
             android:name=".ui.map.MapsActivity"
             android:exported="false"
-            android:label="@string/title_activity_maps" />
-        <activity
-            android:name=".ui.splash.SplashActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false" />
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait" /> <!-- <activity -->
+        <!-- android:name=".ui.splash.SplashActivity" -->
+        <!-- android:exported="false"> -->
+        <!-- </activity> -->
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

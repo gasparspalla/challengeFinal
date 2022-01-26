@@ -24,7 +24,7 @@ import com.munidigital.bc2201.challengefinal.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
     private val args:DetailFragmentArgs by navArgs()
-    private lateinit var detailViewModel: DetailViewModel
+    private lateinit var viewModel: DetailViewModel
     private lateinit var binding:FragmentDetailBinding
 
     override fun onCreateView(
@@ -33,12 +33,13 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
 
         binding = FragmentDetailBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val team=args.team
+
         setData(team)
 
         binding.btnMap.setOnClickListener {
@@ -83,11 +84,11 @@ class DetailFragment : Fragment() {
         }).error(R.drawable.image_not_supported).into(binding.detailimgTeam)
 
 
-        binding.detailTvNameTeam.text= team.nameTeam
-        binding.detailTvAlternateTeam.text= team.nameAlternateTeam
-        binding.detailTvNameLeague.text= team.nameLeague
-        binding.detailNameStadium.text= team.nameStadium
-        binding.detailDescription.text= team.description?:noInformation()
+        binding.detailTvNameTeam.text= getString(R.string.name_team,team.nameTeam)
+        binding.detailTvAlternateTeam.text= getString(R.string.name_allternate_team,team.nameAlternateTeam)
+        binding.detailTvNameLeague.text= getString(R.string.name_league,team.nameLeague)
+        binding.detailNameStadium.text= getString(R.string.name_stadium,team.nameStadium)
+        binding.detailDescription.text= getString(R.string.description,team.description?:noInformation())
 
 
     }

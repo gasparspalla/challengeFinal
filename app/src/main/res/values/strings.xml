@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">challengeFinal</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="app_name">Principal</string>
+    <string name="title_home">Principal</string>
+    <string name="title_dashboard">Favoritos</string>
     <string name="title_notifications">Notifications</string>
     <string name="add_passwd">Ingrese su contraseña</string>
     <string name="user">Usuario</string>
@@ -9,16 +9,33 @@
     <string name="passwd">Contraseña</string>
     <string name="login">ACCEDER</string>
     <string name="authentication">Autenticación</string>
-    <string name="showAlertError">Error</string>
-    <string name="MessaggeErrorLogin">El usuario o contraseña son incorrectos...Por favor,intentelo nuevamente</string>
+    <string name="showAlertError">Ha ocurrido un problema...</string>
+    <string name="messaggeErrorLogin">El usuario o contraseña son incorrectos...Por favor,intentelo nuevamente</string>
+    <string name="messaggeCloseSession">Muchas gracias por utilizar nuestra app</string>
+    <string name="titleMessaggeCloseSession">Cerrando sesion...</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="clickForMoreInfo">click para mas información</string>
     <string name="no_teams_right_now">No hay equipos disponibles</string>
     <string name="no_information">"Actualmente no contamos con esta información"</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="stadium_location_error">El equipo que selecciono no posee informacion de la ubicacion de su estadio</string>
-    <string name="Favorites">Favorites</string>
+    <string name="Favorites">Favoritos</string>
     <string name="search_teams">Buscar equipos por nombre</string>
+    <string name="session">Sesion</string>
+    <string name="close_session">Cerrar sesion</string>
+    <string name="name_stadium">Nombre del estadio : %s</string>
+    <string name="name_league">Nombre de la liga : %s</string>
+    <string name="name_allternate_team">%s</string>
+    <string name="name_team">%s</string>
+    <string name="description">Descripción : %s</string>
+    <string name="title_activity_login">Login</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 </resources>

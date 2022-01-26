@@ -21,7 +21,7 @@ fun getDataBase(context: Context):SoccerDataBase{
             INSTANCE = Room.databaseBuilder(
                 context.applicationContext,
                 SoccerDataBase::class.java,
-                "team_DB2"
+                "team_DB3"
             ).build()
         }
         return INSTANCE

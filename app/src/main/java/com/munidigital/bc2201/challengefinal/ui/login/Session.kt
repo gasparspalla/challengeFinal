@@ -5,10 +5,4 @@ import com.google.firebase.auth.FirebaseUser
 data class Session(
     val loginError: Boolean,
     val user: FirebaseUser?,
-    val session_result:Boolean,
-    val provider:ProviderType
-) {
-    enum class ProviderType {
-        NOTSESSION,BASIC
-    }
-}
+    val session_result:Boolean)
