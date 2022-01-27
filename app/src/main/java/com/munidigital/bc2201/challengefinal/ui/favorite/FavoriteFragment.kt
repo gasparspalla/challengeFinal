@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.munidigital.bc2201.challengefinal.FavoriteTeam
+import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.databinding.FragmentFavoriteBinding
 import com.munidigital.bc2201.challengefinal.ui.detail.DetailFragmentArgs
 import com.munidigital.bc2201.challengefinal.ui.home.HomeViewModel
@@ -26,7 +28,7 @@ class FavoriteFragment : Fragment() {
     ): View? {
 
         binding = FragmentFavoriteBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val rootView= binding.root
 
         viewModel=ViewModelProvider(this, FavoriteViewModelFactory(requireActivity().application)).get(
             FavoriteViewModel::class.java)
@@ -44,7 +46,9 @@ class FavoriteFragment : Fragment() {
         observerListFavorite(adapter)
 
 
-        return root
+
+
+        return rootView
     }
 
     private fun observerListFavorite(adapter: FavoriteAdapter) {

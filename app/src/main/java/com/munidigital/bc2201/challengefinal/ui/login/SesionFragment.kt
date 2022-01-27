@@ -9,8 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.munidigital.bc2201.challengefinal.MainActivity
+
 import com.munidigital.bc2201.challengefinal.R
 
 class SesionFragment : Fragment() {
@@ -20,7 +19,7 @@ class SesionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView=inflater.inflate(R.layout.fragment_sesion, container, false)
+        val rootView=inflater.inflate(R.layout.fragment_session, container, false)
 
         viewModel= ViewModelProvider(this).get(ViewModelLogin::class.java)
 

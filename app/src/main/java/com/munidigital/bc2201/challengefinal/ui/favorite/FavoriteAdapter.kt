@@ -51,7 +51,7 @@ class FavoriteAdapter(private val activity: Activity):
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(favorite: FavoriteTeam) {
-            binding.favoriteTvNameTeam.text=favorite.nameFavoriteTeam
+            binding.favoriteTvNameLong.text=favorite.nameFavoriteTeam
             Glide.with(activity).load(favorite.imgFavorite).into(binding.favoriteImgTeam)
         }
     }

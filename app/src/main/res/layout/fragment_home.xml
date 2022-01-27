@@ -15,7 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <SearchView
             android:id="@+id/txtBuscar"
             android:layout_width="match_parent"
@@ -26,7 +25,8 @@
             android:id="@+id/teamRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtBuscar"/>
+            android:layout_below="@id/txtBuscar"
+            android:orientation="vertical" />
 
     </RelativeLayout>
 

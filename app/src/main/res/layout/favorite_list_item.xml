@@ -20,16 +20,28 @@
             tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/favoriteTvNameTeam"
-            android:layout_width="wrap_content"
+            android:id="@+id/favoriteTvNameLong"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/favoriteImgTeam"
-            android:textSize="26dp"
+            android:textSize="20dp"
             android:textStyle="bold"
             tools:text="BOCA" />
+
+        <TextView
+            android:id="@+id/favoriteTvNameShort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/favoriteTvNameLong"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/favoriteImgTeam"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            tools:text="CABJ" />
 
     </RelativeLayout>
 </layout>

@@ -9,14 +9,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.core.graphics.rotationMatrix
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.findFragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.munidigital.bc2201.challengefinal.ui.map.MapsActivity
 import com.munidigital.bc2201.challengefinal.ui.map.MapsActivity.Companion.LOCATION_KEY
 import com.munidigital.bc2201.challengefinal.R
@@ -37,7 +41,7 @@ class DetailFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
 
         binding = FragmentDetailBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val rootView = binding.root
 
         val team=args.team
 
@@ -60,7 +64,8 @@ class DetailFragment : Fragment() {
             }
         }
 
-        return root
+
+        return rootView
     }
 
 
@@ -109,9 +114,9 @@ class DetailFragment : Fragment() {
 
     }
 
-    private fun noInformation():String{
-        return getString(R.string.no_information)
-    }
+//    private fun noInformation():String{
+//        return getString(R.string.no_information)
+//    }
 
     fun showAlertMap(context: Context) {
         val builder= AlertDialog.Builder(context)
