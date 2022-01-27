@@ -18,16 +18,27 @@ import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.munidigital.bc2201.challengefinal.FavoriteTeam
-import com.munidigital.bc2201.challengefinal.IFragment
-import com.munidigital.bc2201.challengefinal.MainActivity
-import com.munidigital.bc2201.challengefinal.TeamArg
+import com.munidigital.bc2201.challengefinal.*
 import com.munidigital.bc2201.challengefinal.api.ApiResponseStatus
 import com.munidigital.bc2201.challengefinal.databinding.FragmentHomeBinding
 
 class HomeFragment() : Fragment(){
+
+
+
     private lateinit var viewModel: HomeViewModel
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var itemSelectListener: SetOnItemListener
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        itemSelectListener = try {
+            context as SetOnItemListener
+        } catch (e: ClassCastException) {
+            throw ClassCastException("$context must implement PokemonSelectListener")
+        }
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +46,6 @@ class HomeFragment() : Fragment(){
         savedInstanceState: Bundle?): View? {
 
 
-        val activity=(activity as MainActivity)
 
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -53,12 +63,12 @@ class HomeFragment() : Fragment(){
         observerStateCharge()
 
         adapter.onItemClickListener={
-            activity.setTeamSelected(it)
+            itemSelectListener.onTeamSelected(it)
         }
 
         adapter.onItemFavoriteClickListener={
-            val favoriteTeam=FavoriteTeam(it.idTeam,it.nameTeam,it.imageUrl)
-            activity.setFavoriteItem(favoriteTeam)
+            val favorite=FavoriteTeam(it.idTeam,it.nameTeam,it.imageUrl)
+            itemSelectListener.onFavoriteSelected(favorite)
         }
 
 

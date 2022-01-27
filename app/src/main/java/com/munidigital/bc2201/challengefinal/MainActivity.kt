@@ -13,14 +13,14 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.munidigital.bc2201.challengefinal.databinding.ActivityMainBinding
+import com.munidigital.bc2201.challengefinal.ui.favorite.FavoriteFragment
 import com.munidigital.bc2201.challengefinal.ui.home.HomeFragment
 import com.munidigital.bc2201.challengefinal.ui.home.HomeFragmentDirections
 
-class MainActivity : AppCompatActivity(),IFragment{
+class MainActivity : AppCompatActivity(),SetOnItemListener{
     private lateinit var binding:ActivityMainBinding
     private lateinit var navController:NavController
     private lateinit var navView:BottomNavigationView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -62,13 +62,13 @@ class MainActivity : AppCompatActivity(),IFragment{
         navView.visibility=View.GONE
     }
 
-    override fun setTeamSelected(teamArg: TeamArg) {
-        findNavController(R.id.main_navigation_container).navigate(HomeFragmentDirections.actionNavigationHomeToDetailFragment(teamArg))
-    }
-
-    override fun setFavoriteItem(favoriteTeam:FavoriteTeam) {
-        findNavController(R.id.main_navigation_container).navigate(HomeFragmentDirections.actionNavigationHomeToNavigationFavorite(favoriteTeam))
-    }
+//    override fun setTeamSelected(teamArg: TeamArg) {
+//        findNavController(R.id.main_navigation_container).navigate(HomeFragmentDirections.actionNavigationHomeToDetailFragment(teamArg))
+//    }
+//
+//    override fun setFavoriteItem(favoriteTeam:FavoriteTeam) {
+//        findNavController(R.id.main_navigation_container).navigate(HomeFragmentDirections.actionNavigationHomeToNavigationFavorite(favoriteTeam))
+//    }
 
     override fun onStop() {
         super.onStop()
@@ -79,6 +79,14 @@ class MainActivity : AppCompatActivity(),IFragment{
         return findNavController(R.id.main_navigation_container).navigateUp()
     }
 
+    override fun onTeamSelected(team: TeamArg) {
+        findNavController(R.id.main_navigation_container).navigate(HomeFragmentDirections.actionNavigationHomeToDetailFragment(team))
+
+    }
+
+    override fun onFavoriteSelected(favorite: FavoriteTeam) {
+        findNavController(R.id.main_navigation_container).navigate(HomeFragmentDirections.actionNavigationHomeToNavigationFavorite(favorite))
+    }
 
 
 }

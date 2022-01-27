@@ -1,5 +1,6 @@
 package com.munidigital.bc2201.challengefinal.ui.favorite
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.munidigital.bc2201.challengefinal.FavoriteTeam
 import com.munidigital.bc2201.challengefinal.R
+import com.munidigital.bc2201.challengefinal.SetOnItemListener
 import com.munidigital.bc2201.challengefinal.databinding.FragmentFavoriteBinding
 import com.munidigital.bc2201.challengefinal.ui.detail.DetailFragmentArgs
 import com.munidigital.bc2201.challengefinal.ui.home.HomeViewModel
@@ -21,6 +23,8 @@ class FavoriteFragment : Fragment() {
     private val args: FavoriteFragmentArgs by navArgs()
     private lateinit var viewModel: FavoriteViewModel
     private lateinit var binding:FragmentFavoriteBinding
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,6 +55,10 @@ class FavoriteFragment : Fragment() {
 
         return rootView
     }
+
+//    fun setFavoriteData(){
+//        val favoriteItem=args.favorite
+//        favoriteItem?.let { viewModel.setFavoriteData(it) }    }
 
     private fun observerListFavorite(adapter: FavoriteAdapter) {
 
