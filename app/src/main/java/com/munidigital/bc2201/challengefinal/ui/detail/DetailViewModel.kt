@@ -17,4 +17,33 @@ import com.munidigital.bc2201.challengefinal.databinding.FragmentDetailBinding
 
 class DetailViewModel : ViewModel() {
 
+//    fun viewLinks(team: TeamArg){
+//        when{
+//            (team.facebook.isNotBlank())->getFacebook(team.facebook)
+//
+//            (team.instagram.isNotBlank())->getInstagram(team.instagram)
+//
+//            (team.twitter.isNotBlank())->getTwitter(team.twitter)
+//
+//            (team.webSite.isNotBlank())->getWebsite(team.webSite)
+//        }
+//    }
+//
+//    private fun getWebsite(webSite: String):String {
+//        return webSite
+//    }
+//
+//    private fun getTwitter(twitter: String):String {
+//        return  twitter
+//    }
+//
+//    fun getInstagram(instagram: String):String{
+//        return instagram
+//    }
+//
+//    fun getFacebook(facebook:String):String{
+//        return facebook
+//    }
+
+
 }

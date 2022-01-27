@@ -7,35 +7,29 @@
 
     </data>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/detailimgTeam"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="500px"
                     android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    android:paddingTop="10dp"
+                    android:scaleType="centerInside"
                     tools:src="@tools:sample/backgrounds/scenic" />
 
                 <TextView
                     android:id="@+id/detailTvAlternateTeam"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/detailimgTeam"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     tools:text="BTC" />
@@ -44,7 +38,9 @@
                     android:id="@+id/detailTvNameTeam"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/detailTvAlternateTeam"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="20dp"
                     android:textSize="30sp"
                     android:textStyle="bold"
                     tools:text="Bitcoin" />
@@ -53,36 +49,56 @@
                     android:id="@+id/detailTvNameLeague"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/detailTvNameTeam"
-                    android:padding="4dp"
-                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
                     tools:text="dsadasdas" />
 
                 <TextView
                     android:id="@+id/detailNameStadium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/detailTvNameLeague"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
                     tools:text="La bombonera"/>
 
-                <TextView
-                    android:id="@+id/detailDescription"
+<!--                <TextView-->
+<!--                    android:id="@+id/detailDescription"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    android:layout_marginEnd="20dp"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    android:textSize="20sp"-->
+<!--                    tools:text="Lorem" />-->
+
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    android:layout_below="@id/detailNameStadium"
-                    tools:text="Lorem" />
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btnMap"
+                        android:layout_width="400px"
+                        android:layout_height="200px"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="20sp"
+                        android:text="ir a mapa" />
+                    <Button
+                        android:id="@+id/btnWebsite"
+                        android:layout_width="400px"
+                        android:layout_height="200px"
+                        android:layout_marginEnd="20dp"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="20dp"
+                        android:textSize="20sp"
+                        android:text="ir a website" />
+                </FrameLayout>
 
-
-                <Button
-                    android:id="@+id/btnMap"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/detailDescription"
-                    android:text="ir a mapa" />
-
-            </RelativeLayout>
+            </LinearLayout>
 
         </ScrollView>
-    </RelativeLayout>
 </layout>

@@ -3,6 +3,7 @@ package com.munidigital.bc2201.challengefinal.ui.detail
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -45,12 +46,27 @@ class DetailFragment : Fragment() {
         binding.btnMap.setOnClickListener {
             callMapsActivity(team.nameStadiumLocation)
         }
+
+
+        binding.btnWebsite.setOnClickListener {
+            val website=args.team.webSite
+            if (website.isNotBlank()){
+                val url=Uri.parse(website)
+                val intent=Intent(Intent.ACTION_VIEW,url)
+                startActivity(intent)
+            }
+            else{
+                showAlertWebsite(requireContext())
+            }
+        }
+
         return root
     }
 
+
     private fun callMapsActivity(location:String) {
         if (location.isBlank()){
-            showAlert(requireContext())
+            showAlertMap(requireContext())
         }
         else{
             val intent=Intent(requireContext(), MapsActivity::class.java)
@@ -88,7 +104,7 @@ class DetailFragment : Fragment() {
         binding.detailTvAlternateTeam.text= getString(R.string.name_allternate_team,team.nameAlternateTeam)
         binding.detailTvNameLeague.text= getString(R.string.name_league,team.nameLeague)
         binding.detailNameStadium.text= getString(R.string.name_stadium,team.nameStadium)
-        binding.detailDescription.text= getString(R.string.description,team.description?:noInformation())
+//        binding.detailDescription.text= getString(R.string.description,team.description?:noInformation())
 
 
     }
@@ -97,7 +113,7 @@ class DetailFragment : Fragment() {
         return getString(R.string.no_information)
     }
 
-    fun showAlert(context: Context) {
+    fun showAlertMap(context: Context) {
         val builder= AlertDialog.Builder(context)
         builder.setTitle(context.getString(R.string.showAlertError))
         builder.setMessage(context.getString(R.string.stadium_location_error))
@@ -105,4 +121,15 @@ class DetailFragment : Fragment() {
         val dialog: AlertDialog =builder.create()
         dialog.show()
     }
+
+    fun showAlertWebsite(context: Context) {
+        val builder= AlertDialog.Builder(context)
+        builder.setTitle(context.getString(R.string.showAlertError))
+        builder.setMessage(context.getString(R.string.website_error))
+        builder.setPositiveButton("OK",null)
+        val dialog: AlertDialog =builder.create()
+        dialog.show()
+    }
+
+
 }

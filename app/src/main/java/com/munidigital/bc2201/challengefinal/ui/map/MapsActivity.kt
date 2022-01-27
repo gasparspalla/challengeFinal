@@ -1,6 +1,7 @@
 package com.munidigital.bc2201.challengefinal.ui.map
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.location.Address
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,7 @@ import com.munidigital.bc2201.challengefinal.databinding.ActivityMapsBinding
 import android.location.Geocoder
 import android.util.Log
 import android.widget.Toast
+import com.munidigital.bc2201.challengefinal.MainActivity
 import com.munidigital.bc2201.challengefinal.R
 import java.io.IOException
 
@@ -45,7 +47,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun geoLocate() {
-        val location=intent.extras?.getString(LOCATION_KEY)?:"Cordoba,Argentina"
+        val location=intent.extras?.getString(LOCATION_KEY)
         val searchString = location
         val geocoder = Geocoder(this@MapsActivity)
         var list: List<Address> = ArrayList()
@@ -57,9 +59,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         if (list.size > 0) {
             val address: Address = list[0]
             val location=LatLng(address.latitude,address.longitude)
-            mMap.addMarker(MarkerOptions().position(location).title("Marker in Sydney"))
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,20f))
+            mMap.addMarker(MarkerOptions().position(location).title("Estadio"))
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,600.0f))
         }
 
+    }
+
+    override fun onPause() {
+        super.onPause()
+        startActivity(Intent(this,MainActivity::class.java))
     }
 }

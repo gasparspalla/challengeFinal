@@ -51,6 +51,7 @@ class HomeFragment() : Fragment(){
         adapter.onItemClickListener={
             activity.setTeamSelected(it)
         }
+
         adapter.onItemFavoriteClickListener={
             val favoriteTeam=FavoriteTeam(it.idTeam,it.nameTeam,it.imageUrl)
             activity.setFavoriteItem(favoriteTeam)

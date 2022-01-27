@@ -14,44 +14,58 @@
 
         <ImageView
             android:id="@+id/imgTeam"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:scaleType="center"
             tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/tvNameTeam"
+            android:id="@+id/tvNameLongTeam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/imgTeam"
-            android:textSize="26dp"
+            android:textSize="20dp"
             android:textStyle="bold"
             tools:text="BOCA" />
+
+        <TextView
+            android:id="@+id/tvNameShortTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvNameLongTeam"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/imgTeam"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            tools:text="CABJ" />
 
         <TextView
             android:id="@+id/tvMoreInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvNameTeam"
+            android:layout_below="@id/tvNameShortTeam"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/imgTeam"
-            android:text="@string/clickForMoreInfo" />
+            android:text="@string/clickForMoreInfo"
+            android:textSize="14dp" />
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imgFavorite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:visibility="visible"
-            android:src="@drawable/ic_favorite_border"/>
+            <ImageView
+                android:id="@+id/imgFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_favorite_border"
+                android:visibility="visible" />
 
         </FrameLayout>
 

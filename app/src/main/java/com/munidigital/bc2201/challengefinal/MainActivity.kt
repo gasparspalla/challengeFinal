@@ -28,8 +28,7 @@ class MainActivity : AppCompatActivity(),IFragment {
 
         val navView: BottomNavigationView = binding.navView
 
-        val navHostFragment = supportFragmentManager
-                .findFragmentById(R.id.main_navigation_container) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_navigation_container) as NavHostFragment
         val navController =navHostFragment.findNavController()
 
 
@@ -55,5 +54,9 @@ class MainActivity : AppCompatActivity(),IFragment {
     override fun onStop() {
         super.onStop()
         finish()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.main_navigation_container).navigateUp()
     }
 }
