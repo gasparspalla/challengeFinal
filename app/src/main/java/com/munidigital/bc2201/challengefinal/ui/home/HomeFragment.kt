@@ -1,5 +1,8 @@
 package com.munidigital.bc2201.challengefinal.ui.home
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +13,7 @@ import android.widget.ProgressBar
 import android.widget.SearchView
 import android.widget.SearchView.OnQueryTextListener
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -65,10 +69,12 @@ class HomeFragment() : Fragment(){
 
             @RequiresApi(Build.VERSION_CODES.N)
             override fun onQueryTextChange(txtBuscar:String): Boolean {
-                adapter.filtrado(txtBuscar)
+                adapter.filter(txtBuscar)
                 return false
             }
         })
+
+
 
         return root
     }
@@ -91,6 +97,8 @@ class HomeFragment() : Fragment(){
         viewModel.teamListLiveData.observe(requireActivity()) {
             adapter.submitList(it)
             adapter.completeList(it)
+            if (it.isEmpty()) binding.tvNoTeam.visibility = View.VISIBLE
+            else binding.tvNoTeam.visibility=View.GONE
         }
     }
 

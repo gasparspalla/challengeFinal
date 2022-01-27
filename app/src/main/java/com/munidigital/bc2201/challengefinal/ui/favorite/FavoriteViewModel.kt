@@ -2,6 +2,7 @@ package com.munidigital.bc2201.challengefinal.ui.favorite
 
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import com.munidigital.bc2201.challengefinal.FavoriteTeam
 import com.munidigital.bc2201.challengefinal.TeamArg
@@ -22,12 +23,10 @@ class FavoriteViewModel(application: Application): AndroidViewModel(application)
 
     fun setFavoriteData(favoriteItem: FavoriteTeam) {
         viewModelScope.launch {
-
             repository.setFavoriteData(favoriteItem)
         }
 
     }
-
 
 
 }

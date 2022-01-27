@@ -10,7 +10,4 @@ class Teams(val idTeam:String,
             val strStadium:String,
             val strDescriptionEN:String,
             val strTeamBadge:String,
-            val strWebsite:String,
-            val strFacebook:String,
-            val strTwitter:String,
-            val strInstagram:String)
+            val strWebsite:String)

@@ -19,7 +19,7 @@
             android:id="@+id/txtBuscar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"/>
+            android:layout_gravity="start" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/teamRecycler"
@@ -36,6 +36,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone"/>
+    <TextView
+        android:id="@+id/tvNoTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:visibility="gone"
+        android:text="@string/no_get_teams"/>
 </FrameLayout>
 
 </layout>

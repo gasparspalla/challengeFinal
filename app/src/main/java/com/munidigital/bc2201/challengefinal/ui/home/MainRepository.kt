@@ -65,11 +65,7 @@ class MainRepository(private val dataBase: SoccerDataBase) {
             val image=team.strTeamBadge
             val website=team.strWebsite
 
-            val facebook=team.strFacebook
-            val twitter=team.strTwitter
-            val instagram=team.strInstagram
-
-            teamsList.add(TeamArg(idTeam,nameTeam,nameAlternateTeam,nameLeague,nameAlternateLeague,nameStadiumLocation,nameStadium,description,image,0,website,facebook,twitter,instagram))
+            teamsList.add(TeamArg(idTeam,nameTeam,nameAlternateTeam,nameLeague,nameAlternateLeague,nameStadiumLocation,nameStadium,description,image,0,website))
         }
         return teamsList
     }

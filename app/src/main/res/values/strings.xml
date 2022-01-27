@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Principal</string>
+    <string name="app_name">Challenge Final</string>
     <string name="title_home">Principal</string>
     <string name="title_dashboard">Favoritos</string>
     <string name="title_notifications">Notifications</string>
@@ -10,7 +10,10 @@
     <string name="login">acceder</string>
     <string name="authentication">Autenticación</string>
     <string name="showAlertError">Ha ocurrido un problema...</string>
-    <string name="messaggeErrorLogin">El usuario o contraseña son incorrectos...Por favor,intentelo nuevamente</string>
+    <string name="messaggeErrorConnection">Para acceder a los recursos de Firebase debe estar conectado a internet</string>
+    <string name="messaggeErrorLogin">El usuario o contraseña son incorrectos...Por favor,intentelo nuevamente o cree una cuenta nueva</string>
+    <string name="messageErrorCreateAccount">Uno de los campos esta vacio...Por favor,intentelo nuevamente</string>
+    <string name="messageErrorAccountAlreadyExist">Ya existe una cuenta con esas credenciales...Por favor,intentelo nuevamente</string>
     <string name="messaggeCloseSession">Muchas gracias por utilizar nuestra app</string>
     <string name="titleMessaggeCloseSession">Cerrando sesion...</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -39,5 +42,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="no_get_teams">No es posible mostrar los equipos actualmente</string>
+    <string name="no_favorite">No hay favoritos para mostrar</string>
 
 </resources>

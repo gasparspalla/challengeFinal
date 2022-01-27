@@ -65,7 +65,7 @@ class SoccerAdapter(private val activity: Activity):
 
     @SuppressLint("NotifyDataSetChanged")
     @RequiresApi(Build.VERSION_CODES.N)
-    fun filtrado(txtBuscar:String){
+    fun filter(txtBuscar:String){
         if (txtBuscar.isBlank()){
             listTeam.clear()
             listTeam.addAll(listOriginal)

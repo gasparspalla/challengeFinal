@@ -54,13 +54,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         try {
             list = geocoder.getFromLocationName(searchString, 1)
         } catch (e: IOException) {
-            Log.e(TAG, "IOException: " + e.toString() );
+            Log.e(TAG, "IOException: $e");
         }
         if (list.size > 0) {
             val address: Address = list[0]
             val location=LatLng(address.latitude,address.longitude)
-            mMap.addMarker(MarkerOptions().position(location).title("Estadio"))
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,600.0f))
+            mMap.addMarker(MarkerOptions().position(location).title(searchString.toString()))
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,10.0f))
         }
 
     }

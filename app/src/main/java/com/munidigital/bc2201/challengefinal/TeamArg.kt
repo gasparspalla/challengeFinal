@@ -17,7 +17,4 @@ data class TeamArg(@PrimaryKey val idTeam:String,
                     val description:String?,
                     val imageUrl:String,
                     val isSelected:Int,
-                    val webSite:String,
-                    val facebook:String,
-                    val twitter:String,
-                    val instagram:String): Parcelable
+                    val webSite:String): Parcelable

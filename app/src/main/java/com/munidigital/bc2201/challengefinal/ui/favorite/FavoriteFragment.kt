@@ -1,6 +1,7 @@
 package com.munidigital.bc2201.challengefinal.ui.favorite
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,10 +54,12 @@ class FavoriteFragment : Fragment() {
 
     private fun observerListFavorite(adapter: FavoriteAdapter) {
 
-        viewModel.teamListLiveData.observe(requireActivity()){
-                adapter.submitList(it)
+        viewModel.teamListLiveData.observe(requireActivity()) {
+            adapter.submitList(it)
+            if (it.isEmpty()) binding.tvNoFavorite.visibility = View.VISIBLE
+            else binding.tvNoFavorite.visibility=View.GONE
 
-            }
         }
     }
+}
 

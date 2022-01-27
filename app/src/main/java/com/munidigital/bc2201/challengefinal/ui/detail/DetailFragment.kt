@@ -48,7 +48,7 @@ class DetailFragment : Fragment() {
         setData(team)
 
         binding.btnMap.setOnClickListener {
-            callMapsActivity(team.nameStadiumLocation)
+            callMapsActivity(team.nameStadium)
         }
 
 
