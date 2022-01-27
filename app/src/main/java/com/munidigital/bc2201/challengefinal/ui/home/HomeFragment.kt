@@ -26,7 +26,6 @@ import com.munidigital.bc2201.challengefinal.api.ApiResponseStatus
 import com.munidigital.bc2201.challengefinal.databinding.FragmentHomeBinding
 
 class HomeFragment() : Fragment(){
-
     private lateinit var viewModel: HomeViewModel
     private lateinit var binding: FragmentHomeBinding
 
@@ -34,6 +33,7 @@ class HomeFragment() : Fragment(){
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
+
 
         val activity=(activity as MainActivity)
 
@@ -78,6 +78,7 @@ class HomeFragment() : Fragment(){
 
         return root
     }
+
 
     private fun observerStateCharge() {
         val progressBar=binding.progressBar

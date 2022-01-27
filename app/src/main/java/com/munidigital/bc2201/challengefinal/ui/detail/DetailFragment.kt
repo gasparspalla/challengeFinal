@@ -105,18 +105,19 @@ class DetailFragment : Fragment() {
         }).error(R.drawable.image_not_supported).into(binding.detailimgTeam)
 
 
-        binding.detailTvNameTeam.text= getString(R.string.name_team,team.nameTeam)
-        binding.detailTvAlternateTeam.text= getString(R.string.name_allternate_team,team.nameAlternateTeam)
-        binding.detailTvNameLeague.text= getString(R.string.name_league,team.nameLeague)
-        binding.detailNameStadium.text= getString(R.string.name_stadium,team.nameStadium)
-//        binding.detailDescription.text= getString(R.string.description,team.description?:noInformation())
+        binding.detailTvNameTeam.text= getString(R.string.name_team,team.nameTeam?:noInformation())
+        binding.detailTvAlternateTeam.text= getString(R.string.name_allternate_team,team.nameAlternateTeam?:noInformation())
+        binding.detailTvNameLeague.text= getString(R.string.name_league,team.nameLeague?:noInformation())
+        binding.detailNameStadium.text= getString(R.string.name_stadium,team.nameStadium?:noInformation())
+        binding.detailNameStadiumLocation.text= getString(R.string.ubication_stadium,team.nameStadiumLocation?:noInformation())
+        binding.detailDescription.text= getString(R.string.description,team.description?:noInformation())
 
 
     }
 
-//    private fun noInformation():String{
-//        return getString(R.string.no_information)
-//    }
+    private fun noInformation():String{
+        return getString(R.string.no_information)
+    }
 
     fun showAlertMap(context: Context) {
         val builder= AlertDialog.Builder(context)

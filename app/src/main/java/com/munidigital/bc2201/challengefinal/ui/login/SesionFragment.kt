@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 
 import com.munidigital.bc2201.challengefinal.R
 
@@ -25,7 +26,6 @@ class SesionFragment : Fragment() {
 
         button_close_session=rootView.findViewById(R.id.btnCloseSession)
         button_close_session.setOnClickListener {
-            Log.d("HOLA","A")
             viewModel.logout()
             startActivity(Intent(requireContext(), LoginActivity::class.java))
         }

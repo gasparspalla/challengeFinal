@@ -27,6 +27,7 @@
     <string name="session">Sesion</string>
     <string name="close_session">Cerrar sesion</string>
     <string name="name_stadium">Estadio : %s</string>
+    <string name="ubication_stadium">Ubicado en : %s</string>
     <string name="name_league">Liga : %s</string>
     <string name="name_allternate_team">%s</string>
     <string name="name_team">%s</string>
@@ -44,5 +45,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="no_get_teams">No es posible mostrar los equipos actualmente</string>
     <string name="no_favorite">No hay favoritos para mostrar</string>
+    <string name="search">Presione aquí para buscar</string>
 
 </resources>

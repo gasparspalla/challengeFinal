@@ -1,16 +1,11 @@
 package com.munidigital.bc2201.challengefinal
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.os.Build
+import android.app.Fragment
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.widget.SearchView
-import androidx.annotation.RequiresApi
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -21,18 +16,21 @@ import com.munidigital.bc2201.challengefinal.databinding.ActivityMainBinding
 import com.munidigital.bc2201.challengefinal.ui.home.HomeFragment
 import com.munidigital.bc2201.challengefinal.ui.home.HomeFragmentDirections
 
-class MainActivity : AppCompatActivity(),IFragment {
+class MainActivity : AppCompatActivity(),IFragment{
     private lateinit var binding:ActivityMainBinding
+    private lateinit var navController:NavController
+    private lateinit var navView:BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+        navView = binding.navView
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_navigation_container) as NavHostFragment
-        val navController =navHostFragment.findNavController()
+        navController =navHostFragment.findNavController()
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -42,6 +40,26 @@ class MainActivity : AppCompatActivity(),IFragment {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+    setNavBotton()
+    }
+
+    private fun setNavBotton() {
+        navController.addOnDestinationChangedListener{controller,destination,argument->
+            when(destination.id){
+                R.id.navigation_home->showNavBottom()
+                R.id.navigation_favorite->showNavBottom()
+                R.id.detailFragment->hideNavBottom()
+                R.id.navigation_session->showNavBottom()
+            }
+        }
+    }
+
+    private fun showNavBottom() {
+        navView.visibility=View.VISIBLE
+    }
+
+    private fun hideNavBottom() {
+        navView.visibility=View.GONE
     }
 
     override fun setTeamSelected(teamArg: TeamArg) {
@@ -60,4 +78,7 @@ class MainActivity : AppCompatActivity(),IFragment {
     override fun onSupportNavigateUp(): Boolean {
         return findNavController(R.id.main_navigation_container).navigateUp()
     }
+
+
+
 }
