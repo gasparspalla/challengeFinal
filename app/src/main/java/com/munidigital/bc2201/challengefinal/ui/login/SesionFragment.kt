@@ -26,14 +26,18 @@ class SesionFragment : Fragment() {
 
         viewModel= ViewModelProvider(this).get(ViewModelLogin::class.java)
 
-
-
-        binding.btnCloseSession.setOnClickListener {
+        binding.imgUser.setOnClickListener {
             viewModel.logout()
             startActivity(Intent(requireContext(), LoginActivity::class.java))
+            activity?.finish()
         }
+
+        initializeAnimation()
         return rootView
     }
-
+    private fun initializeAnimation(){
+        binding.imgUser.setAnimation(R.raw.animation_exit)
+        binding.imgUser.playAnimation()
+    }
 
 }

@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.databinding.ActivityLoginBinding
 import com.munidigital.bc2201.challengefinal.ui.login.ViewModelLogin
 
@@ -29,8 +30,14 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        initializeAnimation()
         setup()
 
+    }
+
+    private fun initializeAnimation() {
+        binding.imgLogin.setAnimation(R.raw.animation_man_account)
+        binding.imgLogin.playAnimation()
     }
 
 

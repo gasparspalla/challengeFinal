@@ -14,12 +14,20 @@
             android:id="@+id/action_navigation_home_to_detailFragment"
             app:destination="@id/detailFragment"
             app:popUpTo="@id/detailFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right"/>
         <action
             android:id="@+id/action_navigation_home_to_navigation_favorite"
             app:destination="@id/navigation_favorite"
             app:popUpTo="@id/detailFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right"/>
 
     </fragment>
 

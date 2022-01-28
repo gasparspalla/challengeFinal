@@ -49,13 +49,20 @@ class DetailFragment : Fragment() {
             callMapsActivity(team.nameStadiumLocation)
         }
 
-
         binding.btnWebsite.setOnClickListener {
             openWebsite(team)
         }
 
+        initializeAnimation()
 
         return rootView
+    }
+
+    private fun initializeAnimation(){
+        binding.btnMap.setAnimation(R.raw.location_pin)
+        binding.btnMap.playAnimation()
+        binding.btnWebsite.setAnimation(R.raw.animation_link)
+        binding.btnWebsite.playAnimation()
     }
 
     private fun openWebsite(team:TeamArg) {

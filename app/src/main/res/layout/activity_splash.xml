@@ -11,18 +11,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="260dp"
-        android:layout_height="315dp"
-        android:scaleType="centerCrop"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/imgSplash"
+        android:layout_width="match_parent"
         android:layout_gravity="center"
-        android:src="@drawable/logo_futbol"/>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"/>
     <TextView
         android:id="@+id/tv_versioname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:layout_margin="10dp"
         tools:text="2.4.0"
         android:gravity="end"
         android:layout_gravity="bottom"/>

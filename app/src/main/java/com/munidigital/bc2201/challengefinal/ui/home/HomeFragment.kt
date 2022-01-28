@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.munidigital.bc2201.challengefinal.api.ApiResponseStatus
 import com.munidigital.bc2201.challengefinal.FavoriteTeam
+import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.databinding.FragmentHomeBinding
 import com.munidigital.bc2201.challengefinal.interfaces.SetOnItemListener
 
@@ -77,9 +78,11 @@ class HomeFragment() : Fragment(){
         })
 
 
-
         return rootView
     }
+
+
+
 
 
     private fun observerStateCharge() {

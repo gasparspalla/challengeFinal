@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.LottieAnimationView
 import com.bumptech.glide.Glide
 import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.TeamArg
@@ -80,8 +81,11 @@ class SoccerAdapter(private val activity: Activity):
 
             if (teams.isSelected==0)binding.imgFavorite.setImageResource(R.drawable.ic_favorite_border)
             else binding.imgFavorite.setImageResource(R.drawable.ic_favorite_backfill)
-            binding.tvNameShortTeam .text = teams.nameAlternateTeam
-            binding.tvNameLongTeam .text = teams.nameTeam
+
+
+
+            binding.tvNameShortTeam.text = teams.nameAlternateTeam
+            binding.tvNameLongTeam.text = teams.nameTeam
 
             val img = binding.imgTeam
             Glide.with(activity).load(teams.imageUrl).into(img)

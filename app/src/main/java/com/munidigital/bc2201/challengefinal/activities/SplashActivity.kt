@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.ViewModelProvider
+import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.databinding.ActivitySplashBinding
 import com.munidigital.bc2201.challengefinal.ui.login.ViewModelLogin
 
@@ -22,7 +23,8 @@ class SplashActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         viewModel= ViewModelProvider(this).get(ViewModelLogin::class.java)
-
+        binding.imgSplash.setAnimation(R.raw.animation_football)
+        binding.imgSplash.playAnimation()
         getAppVersion()
         val run= Runnable {
 

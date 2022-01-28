@@ -1,6 +1,7 @@
 package com.munidigital.bc2201.challengefinal.activities
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,7 @@ import com.munidigital.bc2201.challengefinal.FavoriteTeam
 import com.munidigital.bc2201.challengefinal.TeamArg
 import com.munidigital.bc2201.challengefinal.databinding.ActivityMainBinding
 import com.munidigital.bc2201.challengefinal.interfaces.SetOnItemListener
+import com.munidigital.bc2201.challengefinal.ui.favorite.FavoriteFragment
 import com.munidigital.bc2201.challengefinal.ui.home.HomeFragmentDirections
 
 class MainActivity : AppCompatActivity(), SetOnItemListener {
@@ -76,6 +78,7 @@ class MainActivity : AppCompatActivity(), SetOnItemListener {
 
     override fun onFavoriteSelected(favorite: FavoriteTeam) {
         findNavController(R.id.main_navigation_container).navigate(HomeFragmentDirections.actionNavigationHomeToNavigationFavorite(favorite))
+
     }
 
 

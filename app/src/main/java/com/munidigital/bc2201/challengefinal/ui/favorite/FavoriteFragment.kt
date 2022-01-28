@@ -1,6 +1,7 @@
 package com.munidigital.bc2201.challengefinal.ui.favorite
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import com.munidigital.bc2201.challengefinal.databinding.FragmentFavoriteBinding
 
 class FavoriteFragment : Fragment() {
     private val args: FavoriteFragmentArgs by navArgs()
+    private var favorite:FavoriteTeam?=null
     private lateinit var viewModel: FavoriteViewModel
     private lateinit var binding:FragmentFavoriteBinding
 
@@ -32,6 +34,8 @@ class FavoriteFragment : Fragment() {
         if (args.favorite!=null){
             viewModel.setFavoriteData(args.favorite!!)
         }
+
+
 
 
 

@@ -13,7 +13,7 @@
     <string name="messaggeErrorConnectionFirebase">Para acceder al servicio Firebase debe estar conectado a internet</string>
     <string name="messaggeErrorConnection">Para acceder a este servicio debe estar conectado a internet</string>
     <string name="messaggeErrorLogin">El usuario o contraseña son incorrectos...Por favor,intentelo nuevamente o cree una cuenta nueva</string>
-    <string name="messageErrorCreateAccount">Uno de los campos esta vacio...Por favor,intentelo nuevamente</string>
+    <string name="messageErrorCreateAccount">Al menos uno de los campos esta vacio...Por favor,intentelo nuevamente</string>
     <string name="messageErrorAccountAlreadyExist">Ya existe una cuenta con esas credenciales...Por favor,intentelo nuevamente</string>
     <string name="messaggeCloseSession">Muchas gracias por utilizar nuestra app</string>
     <string name="titleMessaggeCloseSession">Cerrando sesion...</string>
