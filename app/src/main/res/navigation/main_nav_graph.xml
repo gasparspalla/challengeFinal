@@ -55,6 +55,6 @@
     <fragment
         android:id="@+id/navigation_session"
         android:name="com.munidigital.bc2201.challengefinal.ui.login.SesionFragment"
-        android:label="Sesion Usuario" />
+        android:label="Sesión" />
 
 </navigation>
