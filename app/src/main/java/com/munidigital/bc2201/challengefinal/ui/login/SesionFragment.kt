@@ -32,12 +32,8 @@ class SesionFragment : Fragment() {
             activity?.finish()
         }
 
-        initializeAnimation()
         return rootView
     }
-    private fun initializeAnimation(){
-        binding.imgUser.setAnimation(R.raw.animation_exit)
-        binding.imgUser.playAnimation()
-    }
+
 
 }

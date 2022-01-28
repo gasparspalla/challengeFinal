@@ -8,5 +8,6 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @Entity(tableName = "favorites_table")
 data class FavoriteTeam(@PrimaryKey val idFavoriteTeam:String,
-                   val nameFavoriteTeam:String,
-                    val imgFavorite:String): Parcelable
+                                    val nameFavoriteTeam:String,
+                                    val imgFavorite:String,
+                                    val nameFavoriteAlternateTeam:String): Parcelable

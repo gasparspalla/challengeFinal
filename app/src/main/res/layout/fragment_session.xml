@@ -10,15 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.airbnb.lottie.LottieAnimationView
+        <Button
             android:id="@+id/img_user"
-            android:layout_width="match_parent"
-            android:layout_gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_baseline_person_24"
-            app:lottie_loop="true"/>
-
-
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:text="Cerrar sesion"
+            android:drawableLeft="@drawable/ic_baseline_person_24"/>
 
     </FrameLayout>
 </layout>

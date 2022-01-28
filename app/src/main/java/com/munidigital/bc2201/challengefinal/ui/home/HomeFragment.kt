@@ -60,7 +60,7 @@ class HomeFragment() : Fragment(){
         }
 
         adapter.onItemFavoriteClickListener={
-            val favorite= FavoriteTeam(it.idTeam,it.nameTeam,it.imageUrl)
+            val favorite= FavoriteTeam(it.idTeam,it.nameTeam,it.imageUrl,it.nameAlternateTeam)
             itemSelectListener.onFavoriteSelected(favorite)
         }
 
