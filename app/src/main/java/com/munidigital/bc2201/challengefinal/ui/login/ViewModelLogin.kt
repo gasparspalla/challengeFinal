@@ -1,16 +1,15 @@
 package com.munidigital.bc2201.challengefinal.ui.login
 
 import android.content.Context
-import android.util.Log
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthActionCodeException
-import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.munidigital.bc2201.challengefinal.R
+import com.munidigital.bc2201.challengefinal.Session
 
 
 class ViewModelLogin:ViewModel() {
@@ -99,7 +98,7 @@ class ViewModelLogin:ViewModel() {
     private fun showAlertNoConnection(context: Context) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle(context.getString(R.string.showAlertError))
-        builder.setMessage(context.getString(R.string.messaggeErrorConnection))
+        builder.setMessage(context.getString(R.string.messaggeErrorConnectionFirebase))
         builder.setPositiveButton("OK", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
@@ -142,6 +141,8 @@ class ViewModelLogin:ViewModel() {
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
+
+
 
 }
 

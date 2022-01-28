@@ -1,14 +1,11 @@
-package com.munidigital.bc2201.challengefinal.ui.home
+package com.munidigital.bc2201.challengefinal.database
 
 
-import androidx.lifecycle.viewModelScope
 import com.munidigital.bc2201.challengefinal.FavoriteTeam
 import com.munidigital.bc2201.challengefinal.TeamArg
 import com.munidigital.bc2201.challengefinal.api.SoccerJsonResponse
 import com.munidigital.bc2201.challengefinal.api.service
-import com.munidigital.bc2201.challengefinal.database.SoccerDataBase
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MainRepository(private val dataBase: SoccerDataBase) {
@@ -30,7 +27,7 @@ class MainRepository(private val dataBase: SoccerDataBase) {
 
 
 
-    suspend fun setFavoriteData(itemFavorite:FavoriteTeam){
+    suspend fun setFavoriteData(itemFavorite: FavoriteTeam){
         return withContext(Dispatchers.IO){
             val favoriteList=dataBase.soccerDAO.isFavorite(itemFavorite.idFavoriteTeam)
             if (favoriteList==0){

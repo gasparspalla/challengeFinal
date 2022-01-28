@@ -1,4 +1,4 @@
-package com.munidigital.bc2201.challengefinal.ui.splash
+package com.munidigital.bc2201.challengefinal.activities
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -7,9 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.ViewModelProvider
-import com.munidigital.bc2201.challengefinal.MainActivity
 import com.munidigital.bc2201.challengefinal.databinding.ActivitySplashBinding
-import com.munidigital.bc2201.challengefinal.ui.login.LoginActivity
 import com.munidigital.bc2201.challengefinal.ui.login.ViewModelLogin
 
 class SplashActivity : AppCompatActivity() {

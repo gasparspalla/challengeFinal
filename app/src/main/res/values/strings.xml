@@ -10,7 +10,8 @@
     <string name="login">acceder</string>
     <string name="authentication">Autenticación</string>
     <string name="showAlertError">Ha ocurrido un problema...</string>
-    <string name="messaggeErrorConnection">Para acceder a los recursos de Firebase debe estar conectado a internet</string>
+    <string name="messaggeErrorConnectionFirebase">Para acceder a los recursos de Firebase debe estar conectado a internet</string>
+    <string name="messaggeErrorConnection">Para acceder a este servicio debe estar conectado a internet</string>
     <string name="messaggeErrorLogin">El usuario o contraseña son incorrectos...Por favor,intentelo nuevamente o cree una cuenta nueva</string>
     <string name="messageErrorCreateAccount">Uno de los campos esta vacio...Por favor,intentelo nuevamente</string>
     <string name="messageErrorAccountAlreadyExist">Ya existe una cuenta con esas credenciales...Por favor,intentelo nuevamente</string>

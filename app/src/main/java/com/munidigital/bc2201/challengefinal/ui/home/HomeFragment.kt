@@ -1,26 +1,20 @@
 package com.munidigital.bc2201.challengefinal.ui.home
 
 import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
-import android.widget.SearchView
 import android.widget.SearchView.OnQueryTextListener
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.munidigital.bc2201.challengefinal.*
 import com.munidigital.bc2201.challengefinal.api.ApiResponseStatus
+import com.munidigital.bc2201.challengefinal.FavoriteTeam
 import com.munidigital.bc2201.challengefinal.databinding.FragmentHomeBinding
+import com.munidigital.bc2201.challengefinal.interfaces.SetOnItemListener
 
 class HomeFragment() : Fragment(){
 
@@ -45,10 +39,8 @@ class HomeFragment() : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
 
-
-
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val rootView = binding.root
 
         viewModel=ViewModelProvider(this,MainViewModelFactory(requireActivity().application)).get(HomeViewModel::class.java)
 
@@ -67,7 +59,7 @@ class HomeFragment() : Fragment(){
         }
 
         adapter.onItemFavoriteClickListener={
-            val favorite=FavoriteTeam(it.idTeam,it.nameTeam,it.imageUrl)
+            val favorite= FavoriteTeam(it.idTeam,it.nameTeam,it.imageUrl)
             itemSelectListener.onFavoriteSelected(favorite)
         }
 
@@ -86,7 +78,7 @@ class HomeFragment() : Fragment(){
 
 
 
-        return root
+        return rootView
     }
 
 
@@ -108,7 +100,10 @@ class HomeFragment() : Fragment(){
         viewModel.teamListLiveData.observe(requireActivity()) {
             adapter.submitList(it)
             adapter.completeList(it)
-            if (it.isEmpty()) binding.tvNoTeam.visibility = View.VISIBLE
+            if (it.isEmpty()){
+                binding.tvNoTeam.visibility = View.VISIBLE
+                binding.progressBar.visibility=View.GONE
+            }
             else binding.tvNoTeam.visibility=View.GONE
         }
     }

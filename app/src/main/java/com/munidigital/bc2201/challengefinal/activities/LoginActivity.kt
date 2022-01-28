@@ -1,25 +1,16 @@
-package com.munidigital.bc2201.challengefinal.ui.login
+package com.munidigital.bc2201.challengefinal.activities
 
-import android.annotation.SuppressLint
-import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.util.PatternsCompat
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.munidigital.bc2201.challengefinal.MainActivity
-import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.databinding.ActivityLoginBinding
+import com.munidigital.bc2201.challengefinal.ui.login.ViewModelLogin
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var viewModel:ViewModelLogin
+    private lateinit var viewModel: ViewModelLogin
     private lateinit var binding:ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel.session.observe(this) {
             if (it.session_result){
-                startActivity()
+                startActivity(Intent(this, MainActivity::class.java))
             }
         }
 
@@ -39,10 +30,6 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    private fun startActivity() {
-        startActivity(Intent(this, MainActivity::class.java))
-
-    }
 
     private fun setup() {
         val state_connection=verificateConnection()
@@ -65,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun verificateConnection():Boolean{
-        val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork= cm.activeNetworkInfo
         return activeNetwork?.isConnectedOrConnecting == true
     }

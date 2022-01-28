@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.munidigital.bc2201.challengefinal.FavoriteTeam
 import com.munidigital.bc2201.challengefinal.TeamArg
 
-@Database(entities = [TeamArg::class,FavoriteTeam::class], version = 1)
+@Database(entities = [TeamArg::class, FavoriteTeam::class], version = 1)
 abstract class SoccerDataBase :RoomDatabase(){
 
     abstract val soccerDAO:SoccerDAO

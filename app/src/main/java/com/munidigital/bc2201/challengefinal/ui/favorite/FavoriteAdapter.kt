@@ -8,18 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.munidigital.bc2201.challengefinal.FavoriteTeam
-import com.munidigital.bc2201.challengefinal.TeamArg
 import com.munidigital.bc2201.challengefinal.databinding.FavoriteListItemBinding
-import android.R
-import android.content.Context
-import android.view.View
-
-import android.widget.TextView
-
-import androidx.annotation.NonNull
-
-import com.munidigital.bc2201.challengefinal.MainActivity
-import com.munidigital.bc2201.challengefinal.databinding.TeamListItemBinding
 
 
 class FavoriteAdapter(private val activity: Activity):

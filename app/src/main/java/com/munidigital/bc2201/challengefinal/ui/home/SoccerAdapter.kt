@@ -2,26 +2,18 @@ package com.munidigital.bc2201.challengefinal.ui.home
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.content.Context
 import android.os.Build
-import android.os.Looper
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.android.gms.common.internal.FallbackServiceBroker
 import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.TeamArg
 import com.munidigital.bc2201.challengefinal.databinding.TeamListItemBinding
-import kotlinx.coroutines.delay
 import java.util.*
-import java.util.logging.Handler
-import java.util.stream.Collector
 import java.util.stream.Collectors
 
 class SoccerAdapter(private val activity: Activity):

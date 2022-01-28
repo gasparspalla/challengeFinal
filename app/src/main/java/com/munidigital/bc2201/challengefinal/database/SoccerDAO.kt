@@ -1,7 +1,6 @@
 package com.munidigital.bc2201.challengefinal.database
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import com.munidigital.bc2201.challengefinal.FavoriteTeam
 import com.munidigital.bc2201.challengefinal.TeamArg
@@ -31,14 +30,14 @@ interface SoccerDAO {
     fun desactiveFavoriteImg(idFavorite:String)
 
     @Insert
-    fun insertItemFavorite(favoriteItem:FavoriteTeam)
+    fun insertItemFavorite(favoriteItem: FavoriteTeam)
 
 
     @Query("SELECT COUNT() FROM favorites_table WHERE idFavoriteTeam=:id")
     fun isFavorite(id:String):Int
 
     @Delete
-    fun delete(favoriteItem:FavoriteTeam)
+    fun delete(favoriteItem: FavoriteTeam)
 
 
 }
