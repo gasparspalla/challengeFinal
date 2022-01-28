@@ -15,7 +15,6 @@ class FavoriteFragment : Fragment() {
     private val args: FavoriteFragmentArgs by navArgs()
     private lateinit var viewModel: FavoriteViewModel
     private lateinit var binding:FragmentFavoriteBinding
-    private lateinit var favorite:FavoriteTeam
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,9 +29,10 @@ class FavoriteFragment : Fragment() {
             FavoriteViewModel::class.java)
 
 
-        favorite= args.favorite!!
+        if (args.favorite!=null){
+            viewModel.setFavoriteData(args.favorite!!)
+        }
 
-        favorite.let { viewModel.setFavoriteData(it) }
 
 
         val recycler=binding.favoriteRecycler

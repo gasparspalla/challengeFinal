@@ -28,7 +28,7 @@ class HomeViewModel(application: Application): AndroidViewModel(application) {
                 _statusLiveData.value = ApiResponseStatus.DONE
             }
             catch (e:UnknownHostException){
-                if (teamListLiveData.value!!.isEmpty()){
+                if (teamListLiveData.value==null){
                     Log.e("No internet connection",e.toString())
                     _statusLiveData.value=ApiResponseStatus.NO_INTERNET_CONNECTION
                 }

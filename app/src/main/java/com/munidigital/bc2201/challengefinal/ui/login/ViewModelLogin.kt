@@ -1,5 +1,6 @@
 package com.munidigital.bc2201.challengefinal.ui.login
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AlertDialog
@@ -10,12 +11,16 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.Session
+import com.munidigital.bc2201.challengefinal.databinding.ActivityLoginBinding
+import com.munidigital.bc2201.challengefinal.databinding.FragmentDetailBinding
 
 
 class ViewModelLogin:ViewModel() {
 
     private var auth: FirebaseAuth = FirebaseAuth.getInstance()
-
+    @SuppressLint("StaticFieldLeak")
+    private lateinit var context: Context
+    private lateinit var binding: ActivityLoginBinding
     private val _session = MutableLiveData(Session(false, null, false))
     val session: LiveData<Session>
         get() = _session
@@ -32,7 +37,15 @@ class ViewModelLogin:ViewModel() {
         }
     }
 
-    fun create(mail:String,pass:String,context: Context,state_connection:Boolean){
+    fun setContext(requireContext: Context) {
+        this.context=requireContext
+    }
+
+    fun setBinding(binding: ActivityLoginBinding) {
+        this.binding=binding
+    }
+
+    fun create(mail:String,pass:String,state_connection:Boolean){
         when(state_connection){
             true->{
                 if (mail.isNotEmpty() && pass.isNotEmpty()){
@@ -50,20 +63,20 @@ class ViewModelLogin:ViewModel() {
                                     null,
                                     session_result = false
                                 )
-                                showAlertAccountAlreadyExists(context)
+                                showAlert(R.string.messageErrorAccountAlreadyExist)
                             }
                         }
                 }
                 else if(mail.isBlank() || pass.isBlank()){
-                    showAlertEmpty(context)
+                    showAlert(R.string.messageErrorCreateAccount)
                 }
             }
-            false->showAlertNoConnection(context)
+            false->showAlert(R.string.messaggeErrorConnectionFirebase)
         }
     }
 
 
-    fun login(mail: String, pass: String,context: Context,state_connection:Boolean) {
+    fun login(mail: String, pass: String,state_connection:Boolean) {
         when(state_connection){
             true->{
                 if (mail.isNotBlank() && pass.isNotBlank()) {
@@ -81,66 +94,38 @@ class ViewModelLogin:ViewModel() {
                                     null,
                                     session_result = false
                                 )
-                                showAlertIncorrectLogin(context)
+                                showAlert(R.string.messaggeErrorLogin)
                             }
                         }
                 }
                 else if(mail.isBlank() || pass.isBlank()){
-                    showAlertEmpty(context)
+                    showAlert(R.string.messageErrorCreateAccount)
 
                 }
             }
-            false->showAlertNoConnection(context)
+            false->showAlert(R.string.messaggeErrorConnectionFirebase)
         }
 
     }
-
-    private fun showAlertNoConnection(context: Context) {
-        val builder = AlertDialog.Builder(context)
-        builder.setTitle(context.getString(R.string.showAlertError))
-        builder.setMessage(context.getString(R.string.messaggeErrorConnectionFirebase))
-        builder.setPositiveButton("OK", null)
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
-    }
-
 
     fun logout() {
-            auth.signOut()
-            _session.value = Session(
-                false,
-                null,
-                false
-            )
-        }
+        auth.signOut()
+        _session.value = Session(
+            false,
+            null,
+            false
+        )
+    }
 
-    private fun showAlertIncorrectLogin(context: Context) {
+    private fun showAlert(id:Int) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle(context.getString(R.string.showAlertError))
-        builder.setMessage(context.getString(R.string.messaggeErrorLogin))
+        builder.setMessage(context.getString(id))
         builder.setPositiveButton("OK", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }
 
-    private fun showAlertEmpty(context: Context) {
-        val builder = AlertDialog.Builder(context)
-        builder.setTitle(context.getString(R.string.showAlertError))
-        builder.setMessage(context.getString(R.string.messageErrorCreateAccount))
-        builder.setPositiveButton("OK", null)
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
-    }
-
-
-    private fun showAlertAccountAlreadyExists(context: Context) {
-        val builder = AlertDialog.Builder(context)
-        builder.setTitle(context.getString(R.string.showAlertError))
-        builder.setMessage(context.getString(R.string.messageErrorAccountAlreadyExist))
-        builder.setPositiveButton("OK", null)
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
-    }
 
 
 

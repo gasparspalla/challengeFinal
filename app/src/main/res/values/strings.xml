@@ -10,7 +10,7 @@
     <string name="login">acceder</string>
     <string name="authentication">Autenticación</string>
     <string name="showAlertError">Ha ocurrido un problema...</string>
-    <string name="messaggeErrorConnectionFirebase">Para acceder a los recursos de Firebase debe estar conectado a internet</string>
+    <string name="messaggeErrorConnectionFirebase">Para acceder al servicio Firebase debe estar conectado a internet</string>
     <string name="messaggeErrorConnection">Para acceder a este servicio debe estar conectado a internet</string>
     <string name="messaggeErrorLogin">El usuario o contraseña son incorrectos...Por favor,intentelo nuevamente o cree una cuenta nueva</string>
     <string name="messageErrorCreateAccount">Uno de los campos esta vacio...Por favor,intentelo nuevamente</string>
@@ -47,5 +47,6 @@
     <string name="no_get_teams">No es posible mostrar los equipos actualmente</string>
     <string name="no_favorite">No hay favoritos para mostrar</string>
     <string name="search">Presione aquí para buscar</string>
+    <string name="visualize_maps">Google Maps</string>
 
 </resources>

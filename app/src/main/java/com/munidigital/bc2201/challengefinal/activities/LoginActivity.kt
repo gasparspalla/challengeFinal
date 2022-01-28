@@ -20,6 +20,9 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel=ViewModelProvider(this).get(ViewModelLogin::class.java)
 
+        viewModel.setContext(this)
+        viewModel.setBinding(binding)
+
         viewModel.session.observe(this) {
             if (it.session_result){
                 startActivity(Intent(this, MainActivity::class.java))
@@ -37,11 +40,11 @@ class LoginActivity : AppCompatActivity() {
         val passwd=binding.etPassword
 
         binding.btnLogin.setOnClickListener {
-                viewModel.login(user.text.toString(), passwd.text.toString(),it.context,state_connection)
+                viewModel.login(user.text.toString(), passwd.text.toString(),state_connection)
         }
 
         binding.btnNewAccount.setOnClickListener {
-            viewModel.create(user.text.toString(), passwd.text.toString(),it.context,state_connection )
+            viewModel.create(user.text.toString(), passwd.text.toString(),state_connection )
 
         }
     }

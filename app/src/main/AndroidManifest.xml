@@ -45,6 +45,7 @@
             android:name="com.munidigital.bc2201.challengefinal.activities.MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps"
+            android:theme="@style/Theme.ChallengeFinal.NoActionBar"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.munidigital.bc2201.challengefinal.activities.MainActivity"

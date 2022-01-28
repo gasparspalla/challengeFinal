@@ -11,7 +11,9 @@ import com.munidigital.bc2201.challengefinal.databinding.ActivitySplashBinding
 import com.munidigital.bc2201.challengefinal.ui.login.ViewModelLogin
 
 class SplashActivity : AppCompatActivity() {
-    private val SPLASH_DURATION:Long=2000
+    companion object{
+        const val SPLASH_DURATION:Long=2000
+    }
     private lateinit var binding: ActivitySplashBinding
     private lateinit var viewModel:ViewModelLogin
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +41,6 @@ class SplashActivity : AppCompatActivity() {
             val version = this.packageManager.getPackageInfo(this.packageName, 0).versionName
             binding.tvVersioname.text = version
         } catch (e: PackageManager.NameNotFoundException) {
-            // Log por si falla
             e.printStackTrace()
         }
     }

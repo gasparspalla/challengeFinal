@@ -1,8 +1,8 @@
 package com.munidigital.bc2201.challengefinal.activities
 
 import android.content.ContentValues.TAG
-import android.content.Context
 import android.content.Intent
+
 import android.location.Address
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,15 +15,19 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.munidigital.bc2201.challengefinal.databinding.ActivityMapsBinding
 import android.location.Geocoder
-import android.net.ConnectivityManager
 import android.util.Log
-import androidx.appcompat.app.AlertDialog
-import com.munidigital.bc2201.challengefinal.IAlert
+import android.widget.ImageView
+import androidx.navigation.findNavController
 import com.munidigital.bc2201.challengefinal.R
+import com.munidigital.bc2201.challengefinal.ui.detail.DetailFragment
+
 import java.io.IOException
 
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback,IAlert {
+
+
+
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     companion object{
         const val LOCATION_KEY="location"
@@ -41,6 +45,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,IAlert {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+
+        val bottomBack=findViewById<ImageView>(R.id.imgBack)
+        bottomBack.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -49,8 +58,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,IAlert {
     }
 
     private fun geoLocate() {
-        val state_connection=verificateConnection()
-        if (state_connection){
             val location=intent.extras?.getString(LOCATION_KEY)
             val searchString = location
             val geocoder = Geocoder(this@MapsActivity)
@@ -67,31 +74,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,IAlert {
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location,10.0f))
             }
         }
-        else{
-            showAlert(R.string.messaggeErrorConnection)
-        }
 
 
-    }
-
-    override fun onPause() {
-        super.onPause()
-        startActivity(Intent(this, MainActivity::class.java))
-    }
-
-    fun verificateConnection():Boolean{
-        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val activeNetwork= cm.activeNetworkInfo
-        return activeNetwork?.isConnectedOrConnecting == true
-    }
-
-    override fun showAlert(id: Int) {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle(getString(R.string.showAlertError))
-        builder.setMessage(getString(id))
-        builder.setPositiveButton("OK", null)
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
-    }
 
 }

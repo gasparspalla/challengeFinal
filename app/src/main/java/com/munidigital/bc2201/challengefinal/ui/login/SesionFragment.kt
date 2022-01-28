@@ -8,24 +8,27 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
-import com.munidigital.bc2201.challengefinal.IAlert
 
 import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.activities.LoginActivity
+import com.munidigital.bc2201.challengefinal.databinding.FragmentSessionBinding
 
 class SesionFragment : Fragment() {
     private lateinit var viewModel:ViewModelLogin
-    private lateinit var button_close_session:Button
+    private lateinit var binding:FragmentSessionBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView=inflater.inflate(R.layout.fragment_session, container, false)
+        binding=FragmentSessionBinding.inflate(inflater, container, false)
+
+        val rootView = binding.root
 
         viewModel= ViewModelProvider(this).get(ViewModelLogin::class.java)
 
-        button_close_session=rootView.findViewById(R.id.btnCloseSession)
-        button_close_session.setOnClickListener {
+
+
+        binding.btnCloseSession.setOnClickListener {
             viewModel.logout()
             startActivity(Intent(requireContext(), LoginActivity::class.java))
         }

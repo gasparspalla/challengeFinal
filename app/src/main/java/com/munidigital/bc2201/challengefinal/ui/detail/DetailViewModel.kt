@@ -3,6 +3,7 @@ package com.munidigital.bc2201.challengefinal.ui.detail
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModel
 import com.bumptech.glide.Glide
@@ -10,12 +11,11 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.munidigital.bc2201.challengefinal.IAlert
 import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.TeamArg
 import com.munidigital.bc2201.challengefinal.databinding.FragmentDetailBinding
 
-class DetailViewModel : ViewModel(),IAlert {
+class DetailViewModel : ViewModel() {
 
     @SuppressLint("StaticFieldLeak")
     private lateinit var context: Context
@@ -30,7 +30,7 @@ class DetailViewModel : ViewModel(),IAlert {
         this.binding=binding
     }
 
-    override fun showAlert(id: Int) {
+    fun showAlert(id: Int) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle(context.getString(R.string.showAlertError))
         builder.setMessage(context.getString(id))
@@ -76,5 +76,10 @@ class DetailViewModel : ViewModel(),IAlert {
         return context.getString(R.string.no_information)
     }
 
+    fun verificateConnection():Boolean{
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = cm.activeNetworkInfo
+        return networkInfo != null && networkInfo.isConnected
+    }
 
 }

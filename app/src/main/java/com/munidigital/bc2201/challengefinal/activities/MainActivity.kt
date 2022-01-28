@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), SetOnItemListener {
     }
 
     private fun setNavBotton() {
-        navController.addOnDestinationChangedListener{controller,destination,argument->
+        navController.addOnDestinationChangedListener{_,destination,_->
             when(destination.id){
                 R.id.navigation_home ->showNavBottom()
                 R.id.navigation_favorite ->showNavBottom()
