@@ -1,7 +1,7 @@
 # Challenge final del Bootcamp MUNIDIGITAL 2022-ANDROID
 
 Aquí se presenta el trabajo final del bootcamp desarrollado bajo la herramienta Android Studio.
-La aplicación consta de hacer uso del servicio Firebase para el logeo y la creacion de usuario y mostrar información de los equipos argentinos utilizando la API https://www.thesportsdb.com/api.php.
+La aplicación consta de hacer uso del servicio Firebase para el logeo y la creacion de usuario y mostrar información de los equipos argentinos de fútbol, utilizando la API https://www.thesportsdb.com/api.php.
 Espero que lo disfruten.
 
 ##Comenzando  🚀
