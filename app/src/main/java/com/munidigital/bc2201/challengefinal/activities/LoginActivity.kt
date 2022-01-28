@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.munidigital.bc2201.challengefinal.R
 import com.munidigital.bc2201.challengefinal.databinding.ActivityLoginBinding
@@ -43,6 +44,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setup() {
         val state_connection=verificateConnection()
+        Log.d("CONEXION",state_connection.toString())
         val user=binding.etUsr
         val passwd=binding.etPassword
 
@@ -61,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    fun verificateConnection():Boolean{
+    private fun verificateConnection():Boolean{
         val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork= cm.activeNetworkInfo
         return activeNetwork?.isConnectedOrConnecting == true

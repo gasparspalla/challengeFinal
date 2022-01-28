@@ -69,7 +69,7 @@ class DetailFragment : Fragment() {
         val state_connection=viewModel.verificateConnection()
         if(state_connection){
             if (team.webSite.isNotBlank()){
-                val website="https://${team.webSite}"
+                val website="http://${team.webSite}"
                 val url=Uri.parse(website)
                 val intent=Intent(Intent.ACTION_VIEW,url)
                 startActivity(intent)

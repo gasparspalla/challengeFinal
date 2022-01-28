@@ -28,6 +28,7 @@
             android:layout_marginStart="20dp"
             android:layout_toEndOf="@id/imgTeam"
             android:textSize="20dp"
+            android:textColor="@color/primary_text"
             android:textStyle="bold"
             tools:text="BOCA" />
 
@@ -42,6 +43,7 @@
             android:layout_toEndOf="@id/imgTeam"
             android:textSize="18dp"
             android:textStyle="bold"
+            android:textColor="@color/primary_text"
             tools:text="CABJ" />
 
         <TextView
@@ -65,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_favorite_border"/>
+                android:src="@drawable/ic_favorite_border" />
 
         </FrameLayout>
 

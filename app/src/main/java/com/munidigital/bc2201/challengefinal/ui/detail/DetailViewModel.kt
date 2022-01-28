@@ -64,10 +64,19 @@ class DetailViewModel : ViewModel() {
 
         }).error(R.drawable.image_not_supported).into(binding.detailimgTeam)
         binding.detailTvNameTeam.text= context.getString(R.string.name_team,team.nameTeam)
-        binding.detailTvAlternateTeam.text=context.getString(R.string.name_allternate_team,team.nameAlternateTeam)
-        binding.detailTvNameLeague.text= context.getString(R.string.name_league,team.nameLeague)
-        binding.detailNameStadium.text= context.getString(R.string.name_stadium,team.nameStadium)
-        binding.detailNameStadiumLocation.text= context.getString(R.string.ubication_stadium,team.nameStadiumLocation)
+
+        binding.detailTvNameLeague.text= context.getString(R.string.name_league,let {
+            if (team.nameLeague.isEmpty())noInformation()
+            else team.nameLeague
+        })
+        binding.detailNameStadium.text= context.getString(R.string.name_stadium,let {
+            if (team.nameStadium.isEmpty())noInformation()
+            else team.nameStadium
+        })
+        binding.detailNameStadiumLocation.text= context.getString(R.string.ubication_stadium,let {
+            if (team.nameStadiumLocation.isEmpty())noInformation()
+            else team.nameStadiumLocation
+        })
         binding.detailDescription.text= context.getString(R.string.description,team.description?:noInformation())
     }
 

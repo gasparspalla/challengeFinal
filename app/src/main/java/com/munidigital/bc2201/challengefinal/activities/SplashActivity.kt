@@ -1,7 +1,9 @@
 package com.munidigital.bc2201.challengefinal.activities
 
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -27,9 +29,9 @@ class SplashActivity : AppCompatActivity() {
         binding.imgSplash.playAnimation()
         getAppVersion()
         val run= Runnable {
-
+            val state_connection=verificateConnection()
             viewModel.session.observe(this) { session ->
-                if (session.session_result)startActivity(Intent(this, MainActivity::class.java))
+                if (session.session_result || !state_connection)startActivity(Intent(this, MainActivity::class.java))
                 else startActivity(Intent(this, LoginActivity::class.java))
             }
             finish()
@@ -45,5 +47,10 @@ class SplashActivity : AppCompatActivity() {
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
         }
+    }
+    private fun verificateConnection():Boolean{
+        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork= cm.activeNetworkInfo
+        return activeNetwork?.isConnectedOrConnecting == true
     }
 }

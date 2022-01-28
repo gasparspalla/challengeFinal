@@ -28,6 +28,7 @@
             android:layout_toEndOf="@id/favoriteImgTeam"
             android:textSize="20dp"
             android:textStyle="bold"
+            android:textColor="@color/primary_text"
             tools:text="BOCA" />
 
         <TextView
@@ -40,6 +41,7 @@
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@id/favoriteImgTeam"
             android:textSize="18dp"
+            android:textColor="@color/primary_text"
             android:textStyle="bold"
             tools:text="CABJ" />
 

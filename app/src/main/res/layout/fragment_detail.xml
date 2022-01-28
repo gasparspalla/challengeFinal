@@ -26,16 +26,7 @@
                 android:scaleType="centerInside"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
-            <TextView
-                android:id="@+id/detailTvAlternateTeam"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:textSize="20sp"
-                android:text="@string/name_allternate_team"
-                android:textStyle="bold"
-                tools:text="BOCA" />
+
 
             <TextView
                 android:id="@+id/detailTvNameTeam"
@@ -45,6 +36,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
                 android:textSize="30sp"
+                android:textColor="@color/primary_text"
                 android:text="@string/name_team"
                 android:textStyle="bold"
                 tools:text="CABJ" />
@@ -52,6 +44,7 @@
             <TextView
                 android:id="@+id/detailTvNameLeague"
                 android:layout_width="match_parent"
+                android:textColor="@color/primary_text"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
@@ -68,6 +61,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
+                android:textColor="@color/primary_text"
                 tools:text="@string/name_stadium"/>
 
             <TextView
@@ -78,6 +72,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
+                android:textColor="@color/primary_text"
                 tools:text="@string/ubication_stadium"/>
 
 
@@ -89,6 +84,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
+                android:textColor="@color/primary_text"
                 android:text="@string/description"
                 tools:text="@string/description" />
 
@@ -100,10 +96,10 @@
                     android:id="@+id/btnMap"
                     android:layout_width="150dp"
                     android:layout_height="100dp"
-                    android:layout_gravity="start"
+                    android:layout_gravity="start|bottom"
                     app:srcCompat="@drawable/ic_location"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="30dp"
                     android:textSize="20sp"
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"/>
@@ -113,8 +109,8 @@
                     android:layout_width="150dp"
                     android:layout_height="100dp"
                     android:layout_marginEnd="20dp"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="20dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginTop="30dp"
                     app:srcCompat="@drawable/ic_link_black"
                     app:lottie_loop="true"
                     app:lottie_autoPlay="true"
