@@ -77,7 +77,6 @@ class HomeFragment() : Fragment(){
             }
         })
 
-
         return rootView
     }
 

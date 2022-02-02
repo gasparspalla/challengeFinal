@@ -57,13 +57,14 @@ class ViewModelLogin:ViewModel() {
                                     auth.currentUser,
                                     session_result = true
                                 )
-                            } else {
+                            }
+                            else {
                                 _session.value = Session(
                                     true,
                                     null,
                                     session_result = false
                                 )
-                                showAlert(R.string.messageErrorAccountAlreadyExist)
+                                showAlert(R.string.messageErrorAccount)
                             }
                         }
                 }

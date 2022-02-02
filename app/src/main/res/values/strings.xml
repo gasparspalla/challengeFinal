@@ -14,8 +14,7 @@
     <string name="messaggeErrorConnection">Para acceder a este servicio debe estar conectado a internet</string>
     <string name="messaggeErrorLogin">El usuario o contraseña son incorrectos...Por favor,intentelo nuevamente o cree una cuenta nueva</string>
     <string name="messageErrorCreateAccount">Al menos uno de los campos esta vacio...Por favor,intentelo nuevamente</string>
-    <string name="messageErrorAccountAlreadyExist">Ya existe una cuenta con esas credenciales...Por favor,intentelo nuevamente</string>
-    <string name="messaggeCloseSession">Muchas gracias por utilizar nuestra app</string>
+    <string name="messageErrorAccount">Por favor,verifique el mail ingresado</string>
     <string name="titleMessaggeCloseSession">Cerrando sesion...</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="clickForMoreInfo">click para mas información</string>
